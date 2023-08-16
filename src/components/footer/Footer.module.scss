@@ -2,11 +2,32 @@
 @import "../../styles/generals";
 @import "../../styles/variables";
 
-.more-info {
-  @include m-p;
+.flex-col-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
 
+.flex-col-1 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.footer__container {
+  margin-top: $m-init;
+}
+
+.more-info {
   width: 100%;
   height: 3rem;
+  padding-inline: $p-init;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -21,9 +42,6 @@
   width: 100%;
   padding-block: $m-init;
   background-color: $primary;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
 
   h2 {
     color: $bright;
@@ -40,13 +58,6 @@
   }
 }
 
-.category {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
 .break-line {
   height: 2px;
   background: $lightText;
@@ -57,7 +68,37 @@
   gap: 0.4rem;
 }
 
-.social-media img{
-    width: fit-content;
-    height: 2rem;
+.social-media img {
+  width: fit-content;
+  height: 2rem;
+}
+
+@media (min-width: $desktop) {
+  .more-info,
+  .break-line {
+    display: none;
+  }
+
+  .footer {
+    flex-direction: row;
+  }
+
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr;
+
+    > :last-child {
+      grid-column: 1/4;
+    }
+  }
+}
+
+@media (min-width: $large) {
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr 2fr;
+
+    > :last-child {
+      grid-column: 4/5;
+      align-items: end;
+    }
+  }
 }

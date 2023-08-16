@@ -114,9 +114,13 @@ svg {
   stroke-width: 2;
 }
 
+ul{
+  list-style: none;
+}
+
 /* width */
 ::-webkit-scrollbar {
-  height: 0.2rem;
+  height: 3px;
 }
 
 /* Track */

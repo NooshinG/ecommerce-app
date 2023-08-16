@@ -1,0 +1,33 @@
+@import "../../styles/generals";
+@import "../../styles/typography.module";
+
+.brands {
+  @include m-p;
+
+  width: 100%;
+//   max-height: 16rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap:0.5rem
+}
+
+.brands__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  h2 {
+    color: $typeHighEmphasis;
+  }
+}
+
+.brands__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem 1rem;
+
+  div {
+    aspect-ratio: 1/1;
+  }
+}

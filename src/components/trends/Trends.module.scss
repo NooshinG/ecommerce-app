@@ -1,0 +1,47 @@
+@import "../../styles/generals";
+@import "../../styles/typography.module";
+@import "../../styles/variables";
+
+.trends__container {
+  @include m-p;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  > h2 {
+    color: $typeHighEmphasis;
+  }
+}
+
+.banner--wide {
+  width: 100%;
+  aspect-ratio: 41/15;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.banner__text-container {
+  position: absolute;
+  left: $p-init;
+  bottom: 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #9c1c00;
+
+  p {
+    display: inline-block;
+    width: fit-content;
+    padding: 4px;
+    border-radius: 8px;
+    background: rgba(222, 222, 222, 0.7);
+    backdrop-filter: blur(2.5px);
+  }
+}

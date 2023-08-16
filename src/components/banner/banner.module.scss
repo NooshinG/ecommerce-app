@@ -1,0 +1,21 @@
+@import "../../styles/typography.module";
+@import "../../styles/generals";
+
+.banner--wide {
+  width: 100%;
+  aspect-ratio: 41/15;
+  position: relative;
+}
+
+.banner__text-container {
+  position: absolute;
+  left: 55%;
+  bottom: 20px;
+  background: rgba(222, 222, 222, 0.7);
+  backdrop-filter: blur(2.5px);
+  height: calc(100% - 40px);
+  width: 50%;
+  padding-block: 4px;
+  padding-inline: 10px 10%;
+}
+

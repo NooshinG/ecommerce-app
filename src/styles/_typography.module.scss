@@ -1,0 +1,54 @@
+@mixin setTextStyles($size, $weight, $height) {
+  font-size: $size;
+  font-style: normal;
+  font-weight: $weight;
+  line-height: $height;
+}
+
+.text__display--large {
+  @include setTextStyles(2.5rem, 700, 3.25rem);
+}
+
+.text__display--medium {
+  @include setTextStyles(2.125rem, 600, 2.75rem);
+}
+
+.text__display--small {
+  @include setTextStyles(1.25rem, 600, 1.625rem);
+}
+
+.text__title--medium {
+  @include setTextStyles(0.875rem, 500, 1.125rem);
+}
+
+.text__title--regular {
+  @include setTextStyles(0.875rem, 600, 1rem);
+}
+
+.text__body--large {
+  @include setTextStyles(1rem, 800, 1.25rem);
+}
+
+.text__body--medium {
+  @include setTextStyles(1rem, 500, 1.25rem);
+}
+
+.text__body--regular {
+  @include setTextStyles(1rem, 400, 1.25rem);
+}
+
+.text__label--large {
+  @include setTextStyles(0.875rem, 400, 1.25rem);
+}
+
+.text__label--medium {
+  @include setTextStyles(0.75rem, 500, 1rem);
+}
+
+.text__label--small {
+  @include setTextStyles(0.75rem, 600, 1rem);
+}
+
+.text__link {
+  @include setTextStyles(0.75rem, 500, 1.125rem);
+}

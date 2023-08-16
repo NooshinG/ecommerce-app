@@ -1,0 +1,69 @@
+@import "../../styles/typography.module";
+@import "../../styles/_generals.scss";
+
+$gap: 0.8125rem;
+
+.specials__container {
+  @include m-p;
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+
+  > h2 {
+    color: $typeHighEmphasis;
+  }
+}
+
+.specials__banner {
+  position: relative;
+  //   width: 20.5rem;
+  //   height: 8.25rem;
+  aspect-ratio: 2.5/1;
+
+  > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.specials__content {
+  width: 10.5rem;
+  height: 75%;
+
+  color: #97451f;
+
+  position: absolute;
+  left: $p-init;
+  bottom: $p-init;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.arrow {
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  background-color: rgba(#97451f, 0.3);
+
+  > svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.specials__banner--small {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: $gap;
+
+  .specials__content h3 {
+    display: none;
+  }
+
+  .specials__banner {
+    aspect-ratio: 1.5/1;
+  }
+}

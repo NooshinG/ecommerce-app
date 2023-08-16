@@ -1,0 +1,35 @@
+@import "../../styles/typography.module";
+@import "../../styles/variables";
+@import "../../styles/generals";
+
+.handpick {
+  background-color: $primary;
+  width: 100%;
+  padding: $p-init;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: $p-init;
+
+  > h2 {
+    color: $bright;
+  }
+}
+
+.handpick__items-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1rem 1rem;
+}
+
+.handpick__item {
+  position: relative;
+}
+
+.handpick__title {
+  position: absolute;
+  left: $p-init;
+  bottom: $p-init;
+  color: $dark;
+}

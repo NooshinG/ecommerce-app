@@ -1,0 +1,36 @@
+@import '../../styles/generals';
+
+.header {
+  @include m-p;
+
+  width: 100%;
+  padding-block: 0.9rem;
+}
+
+.flex,
+.flex__left-items,
+.flex__right-items {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flex {
+  justify-content: space-between;
+}
+
+.flex__left-items {
+  gap: 1.25rem;
+}
+
+.flex__right-items {
+  gap: 1.5rem;
+}
+
+.btn--border-none {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+@import "../../styles/typography.module";

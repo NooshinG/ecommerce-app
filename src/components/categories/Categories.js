@@ -1,6 +1,11 @@
+"use client";
+
+import useWindowWidth from "@/hooks/useWindowWidth";
 import classes from "./Categories.module.scss";
 
 const Categories = () => {
+  const { isSmall } = useWindowWidth();
+
   const ctgList = [
     { Title: "SkinCare", Image: "/skincare.svg" },
     { Title: "SkinCare", Image: "/skincare.svg" },
@@ -23,10 +28,12 @@ const Categories = () => {
   ));
 
   return (
-    <div className={` ${classes["top-ctg"]}`}>
-      <h2 className={classes["text__title--regular"]}>Top Categories</h2>
-      <div className={classes["top-ctg__container"]}>{ctgList}</div>
-    </div>
+    isSmall && (
+      <div className={` ${classes["top-ctg"]}`}>
+        <h2 className={classes["text__title--regular"]}>Top Categories</h2>
+        <div className={classes["top-ctg__container"]}>{ctgList}</div>
+      </div>
+    )
   );
 };
 

@@ -1,4 +1,5 @@
 @import '../../styles/generals';
+@import "../../styles/typography";
 
 .header {
   @include m-p;
@@ -33,4 +34,4 @@
   cursor: pointer;
 }
 
-@import "../../styles/typography.module";
+

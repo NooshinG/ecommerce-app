@@ -1,4 +1,4 @@
-@import "../../styles/typography.module";
+@import "../../styles/typography";
 @import "../../styles/variables";
 @import "../../styles/generals";
 
@@ -32,4 +32,13 @@
   left: $p-init;
   bottom: $p-init;
   color: $dark;
+}
+
+@media (min-width: $desktop) {
+  .handpick__items-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    gap: 1rem;
+  }
 }

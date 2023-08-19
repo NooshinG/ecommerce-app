@@ -1,3 +1,5 @@
+@import "./variables";
+
 @mixin setTextStyles($size, $weight, $height) {
   font-size: $size;
   font-style: normal;
@@ -51,4 +53,26 @@
 
 .text__link {
   @include setTextStyles(0.75rem, 500, 1.125rem);
+}
+
+@media (min-width: $desktop) {
+  .text__label--large {
+    @include setTextStyles(clamp(0.875rem, 5vw, 1.875rem), 400, 1.25rem);
+  }
+
+  .text__body--large {
+    @include setTextStyles(clamp(1rem, 5vw, 3.25rem), 700, 4.25rem);
+  }
+
+  .text__title--regular {
+    @include setTextStyles(
+      clamp(0.875rem, 3vw, 2.125rem),
+      600,
+      clamp(1rem, 3vw, 2.75rem)
+    );
+  }
+
+  .text__title--medium {
+    @include setTextStyles(clamp(0.875rem,5vw,1.5rem), 600, 2rem);
+  }
 }

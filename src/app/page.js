@@ -19,12 +19,9 @@ export default function Home() {
       <NewArrivals />
       <Handpicked />
       <Brands />
-      <WebApp />
+      {/* <WebApp /> */}
       <Specials />
       <Trends />
-      {/* <div
-        style={{ height: 50 + "px", background: "red", marginTop: 1 + "rem" }}
-      ></div> */}
     </>
   );
 }

@@ -1,5 +1,6 @@
-@import "../../styles/typography.module";
-@import "../../styles/_generals.scss";
+@import "../../styles/typography";
+@import "../../styles/generals";
+@import "../../styles/variables";
 
 $gap: 0.8125rem;
 
@@ -8,10 +9,6 @@ $gap: 0.8125rem;
   display: flex;
   flex-direction: column;
   gap: $gap;
-
-  > h2 {
-    color: $typeHighEmphasis;
-  }
 }
 
 .specials__banner {
@@ -66,4 +63,36 @@ $gap: 0.8125rem;
   .specials__banner {
     aspect-ratio: 1.5/1;
   }
+}
+
+@media (min-width: $desktop) {
+  .specials__container {
+    > h2 {
+      display: none;
+    }
+  }
+
+  .specials__banner {
+    aspect-ratio: 3.1575/1;
+  }
+
+  .specials__banner--small {
+    > .specials__banner {
+      aspect-ratio: 2.6/1;
+    }
+
+    .specials__content {
+      width: 75%;
+    }
+
+    .text__body--large {
+      @include setTextStyles(clamp(1rem,2.5vw,2.5rem), 700, clamp(1.25rem,2.5vw,3.25rem));
+    }
+  }
+
+  .specials__content {
+    width: 38.625rem;
+  }
+
+ 
 }

@@ -11,8 +11,6 @@ const Trends = () => {
   // const { isMobile } = useDeviceDetect();
   const { isSmall } = useWindowWidth();
 
-console.log(isSmall);
-
   const trendItem = {
     url: "/socks.png",
     title: "Spring Summer Collection",

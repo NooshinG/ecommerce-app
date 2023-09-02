@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 
 export default function useWindowWidth() {
-  const [isSmall, setIsSmall] = useState(window.innerWidth < 768);
+  const mediumScreen = 800;
+  const [isSmall, setIsSmall] = useState(window.innerWidth < mediumScreen);
 
   useEffect(() => {
     const windowWidthHandler = () => {
-      setIsSmall(window.innerWidth < 768);
+      setIsSmall(window.innerWidth < mediumScreen);
     };
 
     window.addEventListener("resize", windowWidthHandler);
 
     return window.addEventListener("resize", windowWidthHandler);
-
   }, [isSmall]);
 
   return { isSmall };

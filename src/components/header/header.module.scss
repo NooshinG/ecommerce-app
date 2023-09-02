@@ -1,11 +1,13 @@
-@import '../../styles/generals';
-@import "../../styles/typography";
+@use "../../styles" as *;
 
 .header {
-  @include m-p;
+  padding: $size-6 + $size-4 $size-4 $size-4 $size-4;
+}
 
-  width: 100%;
-  padding-block: 0.9rem;
+@media (min-width: $screen-md) {
+  .header {
+    padding: $size-4 $size-5;
+  }
 }
 
 .flex,
@@ -21,17 +23,14 @@
 }
 
 .flex__left-items {
-  gap: 1.25rem;
+  gap: $size-5;
 }
 
 .flex__right-items {
-  gap: 1.5rem;
+  gap: $size-6;
 }
 
-.btn--border-none {
-  border: none;
-  background: none;
-  cursor: pointer;
+.logo{
+  width: 6.75rem;
+  aspect-ratio: 5/1;
 }
-
-

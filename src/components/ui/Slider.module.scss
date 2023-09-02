@@ -1,0 +1,70 @@
+@use "../../styles" as *;
+
+.slider__container {
+  margin-top: $size-1;
+}
+
+@media (min-width: $screen-md) {
+  .slider__container {
+    margin-top: 0;
+    padding-block: $size-6;
+  }
+}
+
+.flow {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  gap: $size-1;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+
+.flow::-webkit-scrollbar {
+  display: none;
+}
+
+.slide__tracks {
+  display: grid;
+  grid-auto-flow: column;
+  // grid-auto-columns: 100% / $columns;
+  gap: $size-1;
+  
+}
+
+.dots__container {
+  padding-block: $size-1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $size-1;
+}
+
+.dots {
+  width: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: $clr-primary-400;
+  border: 1px solid $clr-primary-400;
+  //   scroll-behavior: smooth !important;
+}
+
+.dots:where(:hover, :focus-visible) {
+  background-color: $clr-bright-400;
+}
+
+// .slider {
+//   display: grid;
+//   grid-template-rows: 1fr;
+//   grid-template-columns: 1fr;
+//   overflow-x: auto;
+
+//   li {
+//     border-radius: $border-radius;
+//     overflow: hidden;
+//   }
+// }
+
+// .slide--wide {
+//   width: 100%;
+// }

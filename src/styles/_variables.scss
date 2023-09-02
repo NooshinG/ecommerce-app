@@ -1,19 +1,130 @@
-//colours
-$primary: #1b4b66;
-$primaryTint: #639599;
-$error: #b00020;
-$highlight: #ff8c4b;
-$accent: #f4f4f4;
-$dark: #13101e;
-$bright: #fff;
-$gray: #f1f1f1;
-$lightText: #b6b6b6;
-$typeHighEmphasis: #171520;
-$typeLowEmphasis: #626262;
+$screen-md: 50em;
+$border-radius: 8px;
 
-//variables
-$p-init: 1rem;
-$m-init: 1.5rem;
+// colors
+$clr-primary-400: hsl(202, 58%, 25%);
+$clr-tint-400: hsl(184, 21%, 49%);
+$clr-error-400: hsl(349, 100%, 35%);
+$clr-highlight-400: hsl(22, 100%, 65%);
+$clr-dark-400: hsl(253, 30%, 9%);
+$clr-accent-400: hsl(0, 0%, 96%);
+$clr-bright-400: hsl(0, 0%, 100%);
+$clr-gray-400: hsl(0, 0%, 95%);
+$clr-light-400: hsl(0, 0%, 71%);
+$clr-emphasis-700: hsl(251, 21%, 10%);
+$clr-emphasis-400: hsl(0, 0%, 38%);
 
-$desktop: 768px;
-$large: 992px;
+$clr-list: (
+  primary-400: $clr-primary-400,
+  tint-400: $clr-tint-400,
+  error-400: $clr-error-400,
+  highlight-400: $clr-highlight-400,
+  dark-400: $clr-dark-400,
+  accent-400: $clr-accent-400,
+  bright-400: $clr-bright-400,
+  gray-400: $clr-gray-400,
+  light-400: $clr-light-400,
+  emphasis-700: $clr-emphasis-700,
+  emphasis-400: $clr-emphasis-400,
+);
+
+//font size
+$fs-200: 0.625rem;
+$fs-300: 0.75rem;
+$fs-400: 0.875rem;
+$fs-500: 1rem;
+$fs-550: 1.125rem;
+$fs-600: 1.5rem;
+$fs-650: 1.75rem;
+$fs-680: 1.875rem;
+$fs-700: 2.125rem;
+$fs-800: 2.5rem;
+$fs-850: 3.25rem;
+$fs-900: 3.75rem;
+
+$fs-primary-list: (
+  200: $fs-200,
+  300: $fs-300,
+  400: $fs-400,
+  500: $fs-500,
+  550: $fs-550,
+  600: $fs-600,
+  650: $fs-650,
+  680: $fs-680,
+  700: $fs-700,
+  800: $fs-800,
+  850: $fs-850,
+  900: $fs-900,
+);
+
+$fs-primary-banner-title: $fs-600;
+$fs-primary-banner-desc: $fs-300;
+$fs-section-title: $fs-400;
+$fs-brand: $fs-300;
+$fs-product-name: $fs-300;
+$fs-price: $fs-400;
+$fs-category: $fs-400;
+$fs-secondary-banner-small-title: $fs-200;
+$fs-secondary-banner-bold-title: $fs-500;
+$fs-secondary-banner-semi-bold-title: $fs-400;
+$fs-footer: $fs-400;
+
+$fs-secondary-list: (
+  primary-banner-title: $fs-600,
+  primary-banner-desc: $fs-300,
+  section-title: $fs-400,
+  brand: $fs-300,
+  price: $fs-400,
+  category: $fs-400,
+  secondary-banner-small-title: $fs-200,
+  secondary-banner-bold-title: $fs-500,
+  secondary-banner-semi-bold-title: $fs-400,
+  footer: $fs-400,
+);
+
+//font weight
+
+$fw-400: 400;
+$fw-500: 500;
+$fw-600: 600;
+$fw-700: 700;
+$fw-800: 800;
+
+$fw-list: (
+  400: 400,
+  500: 500,
+  600: 600,
+  700: 700,
+  800: 800,
+);
+
+//size
+$size-0: 0.25rem;
+$size-1: 0.5rem;
+$size-2: 0.75rem;
+$size-3: 0.875rem;
+$size-4: 1rem;
+$size-5: 1.25rem;
+$size-6: 1.5rem;
+$size-7: 1.75rem;
+$size-8: 2rem;
+$size-9: 2.25rem;
+$size-10: 2.5rem;
+$size-11: 2.75rem;
+$size-12: 3rem;
+
+@media (min-width: $screen-md) {
+  :root {
+    $fs-primary-banner-title: $fs-900;
+    $fs-primary-banner-desc: $fs-650;
+    $fs-section-title: $fs-700;
+    $fs-brand: $fs-500;
+    $fs-product-name: $fs-400;
+    $fs-price: $fs-500;
+    $fs-category: $fs-600;
+    $fs-secondary-banner-small-title: $fs-680;
+    $fs-secondary-banner-bold-title: $fs-850;
+    $fs-secondary-banner-semi-bold-title: $fs-800;
+    $fs-footer: $fs-500;
+  }
+}

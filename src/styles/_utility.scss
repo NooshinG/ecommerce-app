@@ -1,0 +1,39 @@
+@use "variables" as *;
+
+@each $key, $val in $clr-list {
+  .bg-#{$key} {
+    background-color: #{$val};
+  }
+
+  .text-#{$key} {
+    color: #{$val};
+  }
+}
+
+@each $key, $val in $fs-primary-list {
+  .fs-#{$key} {
+    font-size: #{$val};
+  }
+}
+
+@each $key, $val in $fs-secondary-list {
+  .fs-#{$key} {
+    font-size: #{$val};
+  }
+}
+
+@each $key, $val in $fw-list {
+  .fw-#{$key} {
+    font-weight: #{$val};
+  }
+}
+
+.padding-inline-default {
+  padding-inline: $size-4;
+}
+
+@media (min-width: $screen-md) {
+  .padding-inline-default {
+    padding-inline: $size-5;
+  }
+}

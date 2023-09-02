@@ -9,6 +9,10 @@ $gap: 0.8125rem;
   display: flex;
   flex-direction: column;
   gap: $gap;
+
+  > h2 {
+    color: $typeHighEmphasis;
+  }
 }
 
 .specials__banner {
@@ -86,13 +90,15 @@ $gap: 0.8125rem;
     }
 
     .text__body--large {
-      @include setTextStyles(clamp(1rem,2.5vw,2.5rem), 700, clamp(1.25rem,2.5vw,3.25rem));
+      @include setTextStyles(
+        clamp(1rem, 2.5vw, 2.5rem),
+        700,
+        clamp(1.25rem, 2.5vw, 3.25rem)
+      );
     }
   }
 
   .specials__content {
     width: 38.625rem;
   }
-
- 
 }

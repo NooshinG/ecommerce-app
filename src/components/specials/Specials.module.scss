@@ -1,104 +1,85 @@
-@import "../../styles/typography";
-@import "../../styles/generals";
-@import "../../styles/variables";
+@use "../../styles" as *;
 
-$gap: 0.8125rem;
-
-.specials__container {
-  @include m-p;
+.specials {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: $gap;
+  gap: $size-1;
+  margin-top: $size-6;
+}
 
-  > h2 {
-    color: $typeHighEmphasis;
-  }
+.specials__container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $size-4;
 }
 
 .specials__banner {
+  width: 100%;
   position: relative;
-  //   width: 20.5rem;
-  //   height: 8.25rem;
-  aspect-ratio: 2.5/1;
-
-  > img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+  border-radius: $border-radius;
+  overflow: hidden;
 }
 
-.specials__content {
-  width: 10.5rem;
-  height: 75%;
+.specials__banner[data-type="wide"] {
+  aspect-ratio: 32/9;
+  grid-column: 1/3;
+}
 
-  color: #97451f;
+.specials__banner[data-type="medium"] {
+  aspect-ratio: 21/9;
+}
 
-  position: absolute;
-  left: $p-init;
-  bottom: $p-init;
+.specials__banner[data-type="medium"] h3 {
+  display: none;
+}
 
+.specials__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.specials__info {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  // gap: $size-4;
+  width: fit-content;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: start;
+  padding: $size-4;
+
+  * {
+    color: hsl(19, 66%, 36%);
+  }
+
+  h2,
+  h3 {
+    display: inline-block;
+    width: fit-content;
+  }
 }
 
 .arrow {
-  width: 1.7rem;
-  height: 1.7rem;
+  width: $size-6;
+  aspect-ratio: 1;
   border-radius: 50%;
-  background-color: rgba(#97451f, 0.3);
+  background-color: rgba(152, 70, 31,0.5);
 
-  > svg {
+  svg {
     width: 100%;
-    height: 100%;
+    fill: currentColor;
+    stroke: currentColor;
   }
 }
 
-.specials__banner--small {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: $gap;
-
-  .specials__content h3 {
-    display: none;
-  }
-
-  .specials__banner {
-    aspect-ratio: 1.5/1;
-  }
-}
-
-@media (min-width: $desktop) {
-  .specials__container {
-    > h2 {
-      display: none;
-    }
-  }
-
-  .specials__banner {
-    aspect-ratio: 3.1575/1;
-  }
-
-  .specials__banner--small {
-    > .specials__banner {
-      aspect-ratio: 2.6/1;
-    }
-
-    .specials__content {
-      width: 75%;
-    }
-
-    .text__body--large {
-      @include setTextStyles(
-        clamp(1rem, 2.5vw, 2.5rem),
-        700,
-        clamp(1.25rem, 2.5vw, 3.25rem)
-      );
-    }
-  }
-
-  .specials__content {
-    width: 38.625rem;
+@media (min-width: $screen-md) {
+  .arrow {
+    width: $size-13;
   }
 }

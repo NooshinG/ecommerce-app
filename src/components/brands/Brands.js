@@ -1,26 +1,34 @@
 import Link from "next/link";
 import classes from "./Brands.module.scss";
-import Card from "../ui/card";
 
 const Brands = () => {
   const brands = [
-    { image: "/zara.svg" },
-    { image: "/zara.svg" },
-    { image: "/zara.svg" },
-    { image: "/zara.svg" },
-    { image: "/zara.svg" },
-    { image: "/zara.svg" },
+    { Image: "zara" },
+    { Image: "zara" },
+    { Image: "zara" },
+    { Image: "zara" },
+    { Image: "zara" },
+    { Image: "zara" },
   ].map((item) => (
-    <Card>
-      <img src={item.image} />
-    </Card>
+    <div className={classes["brands__image"]}>
+      <svg>
+        <use href={`/icons.svg#${item.Image}`} />
+      </svg>
+    </div>
   ));
 
   return (
-    <div className={classes["brands"]}>
+    <div className={` ${classes["brands"]} ${classes["padding-inline-default"]}`}>
       <div className={classes["brands__header"]}>
-        <h2 className={classes["text__title--regular"]}>Shop by Brands</h2>
-        <Link href="/" className={classes["text__title--medium"]}>
+        <h2
+          className={`${classes["fs-section-title"]} ${classes["fw-600"]} ${classes["text-emphasis-700"]}`}
+        >
+          Shop by Brands
+        </h2>
+        <Link
+          href="/"
+          className={`${classes["fs-section-title"]} ${classes["fw-600"]} `}
+        >
           View all {">"}
         </Link>
       </div>

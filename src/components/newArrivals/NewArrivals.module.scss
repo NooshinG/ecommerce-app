@@ -1,68 +1,31 @@
-@import "../../styles/typography";
-@import "../../styles/generals";
-@import "../../styles/variables";
+@use "../../styles" as *;
 
 .arrivals {
-  @include m-p;
-
-  width: 100%;
-  // height: 14.625rem;
   display: flex;
   flex-direction: column;
-  // justify-content: space-between;
-  gap: $p-init;
+  gap: $size-6;
+  margin-top: $size-7;
 }
 
 .arrivals__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  h2 {
-    color: $typeHighEmphasis;
-  }
 }
 
-.arrivals__list {
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
-  overflow-x: auto;
-  padding-block: 0.2rem;
-  // overflow-y:  auto;
-}
-
-.arrivals__item {
-  // height: 13rem;
+.arrivals__container {
+  width: 100%;
+  padding-inline: $size-1;
   display: flex;
   flex-direction: column;
-  // justify-content: space-evenly;
-  gap: 0.2rem;
-
-  img {
-    width: 8.5rem;
-    aspect-ratio: 1/1;
-  }
-
-  h3 {
-    color: $typeHighEmphasis;
-  }
-
-  h4 {
-    color: $typeLowEmphasis;
-  }
+  align-items: flex-start;
+  gap: $item-gap;
 }
 
-@media (min-width: $desktop) {
-  .arrivals__list {
-    gap: $p-init;
-  }
-
-  .arrivals__item {
-    min-width: calc(100% / 4 - $p-init);
-
-    img {
-      width: 100%;
-    }
-  }
+.arrivals__image {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: $border-radius;
 }
+
+

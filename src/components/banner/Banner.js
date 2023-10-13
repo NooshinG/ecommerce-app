@@ -1,36 +1,24 @@
 "use client";
 // import Link from "next/link";
 import classes from "./banner.module.scss";
-import Slider from "../ui/Slider";
+import { Slide } from "react-slideshow-image";
+import "react-slideshow-image/dist/styles.css";
 import useWindowWidth from "@/hooks/useWindowWidth";
 import Button from "../ui/Button";
+import { MEDIUM_SCREEN_SIZE } from "../../constants/global";
 
-const Banner = () => {
-  const { isSmall } = useWindowWidth();
+const Banner = ({ categories }) => {
+  const { windowSize } = useWindowWidth();
 
-  const slides = [
-    {
-      id: 1,
-      url: "/girl.png",
-      title: "Happy Socks",
-      desc: "Happy socks don't stink. BFF for your feet :)",
-    },
-    {
-      id: 2,
-      url: "/socks.png",
-      title: "Happy Socks",
-      desc: "Happy socks don't stink. BFF for your feet :)",
-    },
-    {
-      id: 3,
-      url: "/socks.png",
-      title: "Happy Socks",
-      desc: "Happy socks don't stink. BFF for your feet :)",
-    },
-  ];
+  const slides = categories.map((item) => ({
+    id: item.id,
+    url: item.image,
+    title: item.name,
+    desc: item.description,
+  }));
 
   const slidesMap = slides.map((item) => (
-    <div className={classes["banner__container"]} id={item.id}> 
+    <div className={classes["banner__container"]} id={item.id}>
       <img src={item.url} />
       <div className={classes["banner__text"]}>
         <h2
@@ -43,7 +31,7 @@ const Banner = () => {
         >
           {item.desc}
         </p>
-        {!isSmall && (
+        {windowSize >= MEDIUM_SCREEN_SIZE && (
           <Button>
             <svg>
               <use href="/icons.svg#arrow" />
@@ -55,7 +43,13 @@ const Banner = () => {
     </div>
   ));
 
-  return <Slider perPage={2} banners={slidesMap} />;
+  return (
+    <div className={classes["padding-inline-default"]}>
+      <Slide indicators={true} arrows={false}>
+        {slidesMap}
+      </Slide>
+    </div>
+  );
 };
 
 export default Banner;

@@ -1,37 +1,56 @@
 "use client";
 
 import Link from "next/link";
-
-// import useDeviceDetect from "@/hooks/useDeviceDetect";
-import Card from "../ui/card";
 import classes from "./Trends.module.scss";
 import useWindowWidth from "@/hooks/useWindowWidth";
+import { Slide } from "react-slideshow-image";
+import { MEDIUM_SCREEN_SIZE } from "../../constants/global";
 
 const Trends = () => {
-  // const { isMobile } = useDeviceDetect();
-  const { isSmall } = useWindowWidth();
+  const { windowSize } = useWindowWidth();
 
-  const trendItem = {
-    url: "/socks.png",
-    title: "Spring Summer Collection",
-    desc: "UP TO 20% OFF",
-  };
+  const trendItems = [
+    {
+      url: "/socks.png",
+      title: "Spring Summer Collection",
+      desc: "UP TO 20% OFF",
+    },
+    {
+      url: "/girl.png",
+      title: "Spring Summer Collection",
+      desc: "UP TO 20% OFF",
+    },
+  ].map((item) => (
+    <Link href="/">
+      <div className={classes["trend__container"]}>
+        <img src={item.url} alt={item.title} />
+        <div className={classes["trend__info"]}>
+          <h2
+            className={`${classes["fs-secondary-banner-bold-title"]} ${classes["fw-800"]}`}
+          >
+            {item.title}
+          </h2>
+          <p className={`${classes["fs-400"]} ${classes["fw-500"]}`}>
+            {item.desc}
+          </p>
+        </div>
+      </div>
+    </Link>
+  ));
 
   return (
-    isSmall && (
-      <div className={classes["trends__container"]}>
-        <h2 className={classes["text__title--regular"]}>Trending Deals</h2>
-        <Link href="/">
-          <Card className={classes["banner--wide"]}>
-            <img src={trendItem.url} alt={trendItem.title} />
-            <div className={classes["banner__text-container"]}>
-              <h2 className={classes["text__display--small"]}>
-                {trendItem.title}
-              </h2>
-              <p className={classes["text__label--medium"]}>{trendItem.desc}</p>
-            </div>
-          </Card>
-        </Link>
+    windowSize < MEDIUM_SCREEN_SIZE && (
+      <div
+        className={` ${classes["trends"]} ${classes["padding-inline-default"]}`}
+      >
+        <h2
+          className={`${classes["fs-section-title"]} ${classes["fw-600"]} ${classes["text-emphasis-700"]}`}
+        >
+          Trending Deals
+        </h2>
+        <Slide arrows={false} indicators={false}>
+          {trendItems}
+        </Slide>
       </div>
     )
   );

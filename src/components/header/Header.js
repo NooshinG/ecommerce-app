@@ -3,25 +3,20 @@
 import useWindowWidth from "@/hooks/useWindowWidth";
 import classes from "./header.module.scss";
 import Link from "next/link";
+import { MEDIUM_SCREEN_SIZE } from "../../constants/global";
 
-const Header = () => {
-  const { isSmall } = useWindowWidth();
+const Header = ({ categories }) => {
+  const { windowSize } = useWindowWidth();
 
-  const categories = [
-    "Handbags",
-    "Watches",
-    "Skincare",
-    "Jewellery",
-    "Apparels",
-  ].map((item) => (
-    <li key={Math.random()} className={classes['fs-400']}>
-      <Link href="/">{item}</Link>
+  const categoriesList = categories.map((item) => (
+    <li key={item.id} className={classes["fs-400"]}>
+      <Link href="/">{item.name}</Link>
     </li>
   ));
 
   const navCategory = (
     <ul role="list" className={classes["flex__left-items"]}>
-      {categories}
+      {categoriesList}
     </ul>
   );
 
@@ -92,7 +87,7 @@ const Header = () => {
 
   return (
     <div className={`${classes.header} ${classes.flex} `}>
-      {isSmall ? smallScreenHeader : wideScreenHeader}
+      {windowSize < MEDIUM_SCREEN_SIZE ? smallScreenHeader : wideScreenHeader}
     </div>
   );
 };

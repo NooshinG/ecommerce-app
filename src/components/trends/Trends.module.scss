@@ -1,21 +1,17 @@
-@import "../../styles/generals";
-@import "../../styles/typography";
-@import "../../styles/variables";
+@use "../../styles" as *;
 
-.trends__container {
-  @include m-p;
+.trends {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-
-  > h2 {
-    color: $typeHighEmphasis;
-  }
+  gap: $size-1;
+  margin-top: $size-6;
 }
 
-.banner--wide {
+.trend__container {
   width: 100%;
-  aspect-ratio: 41/15;
+  aspect-ratio: 21 / 6;
+  border-radius: $border-radius;
+  overflow: hidden;
   position: relative;
 
   img {
@@ -25,23 +21,31 @@
   }
 }
 
-.banner__text-container {
-  position: absolute;
-  left: $p-init;
-  bottom: 0;
-  width: 50%;
-  height: 100%;
+.trend__info {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  color: #9c1c00;
+  justify-content: space-evenly;
+  width: fit-content;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: start;
+  padding: $size-4;
 
+  * {
+    color: hsl(19, 66%, 36%);
+  }
+
+  h2,
   p {
     display: inline-block;
     width: fit-content;
-    padding: 4px;
-    border-radius: 8px;
-    background: rgba(222, 222, 222, 0.7);
-    backdrop-filter: blur(2.5px);
+  }
+
+  p {
+    background-color: rgba($clr-accent-400, 0.6);
+    border-radius: $border-radius;
+    padding: 0.2rem 0.5rem;
   }
 }

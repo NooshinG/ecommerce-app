@@ -1,23 +1,27 @@
 import Banner from "@/components/banner/Banner";
-// import Brands from "@/components/brands/Brands";
-// import Categories from "@/components/categories/Categories";
-// import Handpicked from "@/components/handpicked/Handpicked";
-// import NewArrivals from "@/components/newArrivals/NewArrivals";
-// import Specials from "@/components/specials/Specials";
-// import Trends from "@/components/trends/Trends";
-// import WebApp from "@/components/webApp/WebApp";
+import Categories from "@/components/categories/Categories";
+import NewArrivals from "@/components/newArrivals/NewArrivals";
+import Handpick from "@/components/handpick/Handpick";
+import Brands from "@/components/brands/Brands";
+import Specials from "@/components/specials/Specials";
+import Trends from "@/components/trends/Trends";
 
-export default function Home() {
+import { getProducts } from "@/lib/getProducts";
+import { getCategories } from "@/lib/getCategories";
+
+export default async function Home() {
+  const categories = await getCategories();
+  const products = await getProducts();
+console.log(products)
   return (
     <>
-      <Banner />
-      {/* 
-      <Categories />
-      <NewArrivals />
-      <Handpicked />
+      <Banner categories={categories} />
+      <Categories categories={categories} />
+      <NewArrivals products={products}/>
+      <Handpick />
       <Brands />
       <Specials />
-      <Trends /> */}
+      <Trends />
     </>
   );
 }

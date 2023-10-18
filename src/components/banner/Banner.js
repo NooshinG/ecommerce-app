@@ -1,11 +1,11 @@
 "use client";
-// import Link from "next/link";
+
 import classes from "./banner.module.scss";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import useWindowWidth from "@/hooks/useWindowWidth";
-import Button from "../ui/Button";
 import { MEDIUM_SCREEN_SIZE } from "../../constants/global";
+import Redirection from "../ui/Redirection";
 
 const Banner = ({ categories }) => {
   const { windowSize } = useWindowWidth();
@@ -17,31 +17,34 @@ const Banner = ({ categories }) => {
     desc: item.description,
   }));
 
-  const slidesMap = slides.map((item) => (
-    <div className={classes["banner__container"]} id={item.id}>
-      <img src={item.url} />
-      <div className={classes["banner__text"]}>
-        <h2
-          className={`${classes["fs-primary-banner-title"]} ${classes["fw-800"]}`}
-        >
-          {item.title}
-        </h2>
-        <p
-          className={`${classes["fs-primary-banner-desc"]} ${classes["fw-500"]}`}
-        >
-          {item.desc}
-        </p>
-        {windowSize >= MEDIUM_SCREEN_SIZE && (
-          <Button>
-            <svg>
-              <use href="/icons.svg#arrow" />
-            </svg>
-            See more
-          </Button>
-        )}
+  const slidesMap = slides.map((item) => {
+    return (
+      <div className={classes["banner__container"]} id={item.id}>
+        <img src={item.url} />
+
+        <div className={classes["banner__text"]}>
+          <h2
+            className={`${classes["fs-primary-banner-title"]} ${classes["fw-800"]}`}
+          >
+            {item.title}
+          </h2>
+          <p
+            className={`${classes["fs-primary-banner-desc"]} ${classes["fw-500"]}`}
+          >
+            {item.desc}
+          </p>
+          {windowSize >= MEDIUM_SCREEN_SIZE && (
+            <Redirection path={`/category/${item.id}`}>
+              <svg>
+                <use href="/icons.svg#arrow" />
+              </svg>
+              See more
+            </Redirection>
+          )}
+        </div>
       </div>
-    </div>
-  ));
+    );
+  });
 
   return (
     <div className={classes["padding-inline-default"]}>

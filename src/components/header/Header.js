@@ -10,7 +10,7 @@ const Header = ({ categories }) => {
 
   const categoriesList = categories.map((item) => (
     <li key={item.id} className={classes["fs-400"]}>
-      <Link href="/">{item.name}</Link>
+      <Link href={`/category/${item.id}`}>{item.name}</Link>
     </li>
   ));
 

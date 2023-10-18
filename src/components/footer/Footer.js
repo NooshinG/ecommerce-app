@@ -1,11 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import classes from "./Footer.module.scss";
 
 const Footer = ({ categories }) => {
   
   const categoriesList = categories.map((item) => (
-    <li key={Math.random()}>{item.name}</li>
+    <li key={Math.random()}><Link href={`/category/${item.id}`}>{item.name}</Link></li>
   ));
 
   const policy = [

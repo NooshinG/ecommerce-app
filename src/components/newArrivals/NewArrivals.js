@@ -12,6 +12,12 @@ import classes from "./NewArrivals.module.scss";
 const NewArrivals = ({ products }) => {
   const { windowSize } = useWindowWidth();
 
+  let slidesToShow = windowSize < SMALL_SCREEN_SIZE
+  ? 2
+  : windowSize < MEDIUM_SCREEN_SIZE
+  ? 3
+  : 4
+
   const arrivals = products
     .slice(0, 10)
     .map((item) => ({
@@ -20,7 +26,7 @@ const NewArrivals = ({ products }) => {
       category: item.category.name,
       price: `$${item.price}`,
     }))
-    .map((item) => <Product item={item} />);
+    .map((item) => <Product item={item} slidesToShow={slidesToShow}/>);
 
   return (
     <div
@@ -42,11 +48,7 @@ const NewArrivals = ({ products }) => {
       <Slide
         slidesToScroll={windowSize < SMALL_SCREEN_SIZE ? 2 : 3}
         slidesToShow={
-          windowSize < SMALL_SCREEN_SIZE
-            ? 2
-            : windowSize < MEDIUM_SCREEN_SIZE
-            ? 3
-            : 4
+          slidesToShow
         }
         arrows={false}
         autoplay={false}

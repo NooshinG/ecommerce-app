@@ -1,14 +1,22 @@
-import  classes  from "./Product.module.scss";
+import Image from "next/image";
+import classes from "./Product.module.scss";
 
-const Product = ({ item }) => {
+const Product = ({ item, slidesToShow }) => {
   return (
     <div className={classes["product__container"]}>
-      <img className={classes["product__image"]} src={item.image} />
+      {/* <img className={classes["product__image"]} src={item.image} /> */}
+      <Image
+        src={item.image}
+        alt={item.title}
+        layout="fill"
+        objectFit="cover"
+        className={classes["product__image"]}
+      />
       <h3
         className={`${classes["fs-brand"]} ${classes["fw-600"]} ${classes["text-emphasis-700"]}`}
       >
         {`${item.title.substring(0, 25)} ${
-          item.title.substring(0, 15).length <= item.title.length ? "..." : ""
+          item.title.substring(0, 15).trim().length < item.title.length ? "..." : ""
         }`}
       </h3>
       <h4

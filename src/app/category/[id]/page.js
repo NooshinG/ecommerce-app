@@ -1,17 +1,23 @@
+import { supabase } from "@/lib/initSupabase";
 import AutoGrid from "@/components/ui/AutoGrid";
 import Product from "@/components/ui/Product";
 
-import { getProductsOfCategory } from "../../../lib/getProducts";
+export const revalidate = 0;
 
 const Products = async ({ params }) => {
-  const { data: products, error } = await getProductsOfCategory(params.id);
+  
+  const { data : products } = await supabase
+    .from("product")
+    .select("*")
+    .eq("id_category", params.id);
 
+  
   if (!products) {
     return (
       <p>
         Something went wrong!
         <br />
-        {error}
+        {/* {error} */}
       </p>
     );
   }
@@ -22,7 +28,9 @@ const Products = async ({ params }) => {
 
   return (
     <AutoGrid>
-      {products.map((item) => <Product item={item} />)}
+      {products.map((item) => (
+        <Product item={item} />
+      ))}
     </AutoGrid>
   );
 };

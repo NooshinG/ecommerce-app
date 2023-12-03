@@ -1,7 +1,7 @@
 import Image from "next/image";
 import classes from "./Product.module.scss";
 
-const Product = ({ item, slidesToShow }) => {
+const Product = ({ item }) => {
   return (
     <div className={classes["product__container"]}>
       {/* <img className={classes["product__image"]} src={item.image} /> */}
@@ -27,7 +27,7 @@ const Product = ({ item, slidesToShow }) => {
       <h3
         className={`${classes["fs-price"]} ${classes["fw-600"]} ${classes["text-emphasis-700"]}`}
       >
-        {item.price}
+        {item.price + '$'}
       </h3>
     </div>
   );

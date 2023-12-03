@@ -1,5 +1,7 @@
 import { supabase } from "./initSupabase";
 
+// export const revalidate = 10
+
 async function getProducts() {
   const { data } = await supabase.from("product").select(`*,
   category (

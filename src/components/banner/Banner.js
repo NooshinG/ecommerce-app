@@ -21,7 +21,6 @@ const Banner = ({ categories }) => {
   const slidesMap = slides.map((item) => {
     return (
       <div className={classes["banner__container"]} id={item.id}>
-        {/* <img src={item.url} /> */}
         <Image src={item.url} alt={item.title} fill={true} />
 
         <div className={classes["banner__text"]}>
@@ -34,9 +33,10 @@ const Banner = ({ categories }) => {
             className={`${classes["fs-primary-banner-desc"]} ${classes["fw-500"]}`}
           >
             {`${item.desc.substring(0, 83)} ${
-          item.desc.substring(0, 15).trim().length < item.desc.length ? "..." : ""
-        }`}
-            {/* {item.desc} */}
+              item.desc.substring(0, 15).trim().length < item.desc.length
+                ? "..."
+                : ""
+            }`}
           </p>
           {windowSize >= MEDIUM_SCREEN_SIZE && (
             <Redirection path={`/category/${item.id}`}>

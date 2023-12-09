@@ -2,7 +2,8 @@ import "./globals.scss";
 
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
-import {getCategories} from "@/lib/getCategories";
+import { getCategories } from "@/lib/getCategories";
+import Providers from "./redux/Providers";
 
 export const metadata = {
   title: "Create Next App",
@@ -10,15 +11,17 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const categories = await getCategories(); 
+  const categories = await getCategories();
 
   return (
-    <html lang="en">
-      <body>
-        <Header categories={categories} />
-        {children}
-        <Footer categories={categories} />
-      </body>
-    </html>
+    <Providers>
+      <html lang="en">
+        <body>
+          <Header categories={categories} />
+          {children}
+          <Footer categories={categories} />
+        </body>
+      </html>
+    </Providers>
   );
 }

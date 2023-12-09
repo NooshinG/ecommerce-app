@@ -1,6 +1,9 @@
+
+
 import { supabase } from "@/lib/initSupabase";
 import Image from "next/image";
 import classes from "./style.module.scss";
+import AddToCart from "@/components/addToCart/AddToCart";
 
 export const revalidate = 60;
 
@@ -9,6 +12,22 @@ const Product = async ({ params }) => {
     .from("product")
     .select("*,category(name)")
     .eq("id", params.id);
+
+  if (!product) {
+    product.push({
+      id: 0,
+      title: "",
+      description: "",
+      id_category: 0,
+      image: "",
+      create_date: "",
+      price: 0,
+      category: {
+        name: "",
+      },
+    });
+  }
+
   console.log(product);
 
   return (
@@ -19,6 +38,7 @@ const Product = async ({ params }) => {
           layout="fill"
           objectFit="cover"
           className={classes["image"]}
+          alt={product[0].title}
         />
       </div>
       <div className={classes.flex}>
@@ -31,7 +51,7 @@ const Product = async ({ params }) => {
         <p className={classes.desc}>{product[0].description}</p>
       </div>
       <div>
-        <button className={classes.button}>Add to Bag</button>
+        <AddToCart Title={product[0].title} Price={product[0].price}/>
       </div>
     </div>
   );

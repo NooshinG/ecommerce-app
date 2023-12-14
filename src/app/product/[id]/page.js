@@ -28,7 +28,7 @@ const Product = async ({ params }) => {
     });
   }
 
-  console.log(product);
+  // console.log(product);
 
   return (
     <div className={`${classes["padding-inline-default"]}`}>

@@ -8,7 +8,7 @@ const AddToCart = (props) => {
   const items = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
-  console.log(items);
+  // console.log(items);
 
   return (
     <button

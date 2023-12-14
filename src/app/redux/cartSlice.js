@@ -1,16 +1,18 @@
+"use client";
+
 import { createSlice } from "@reduxjs/toolkit";
+import { setCookies, getCookie } from "@/lib/cookies";
 
-const initialState ={}
+const initialCookie = getCookie("cart");
 
-if(sessionStorage.getItem("cart")){
-    initialState = sessionStorage.getItem("cart")
-}
-initialState = {
-  totalAmount: 0,
-  totalQuantity: 0,
-  discount: 0,
-  items: [],
-};
+const initialState = initialCookie
+  ? JSON.parse(initialCookie)
+  : {
+      totalAmount: 0,
+      totalQuantity: 0,
+      discount: 0,
+      items: [],
+    };
 
 export const counterSlice = createSlice({
   name: "counter",
@@ -39,10 +41,13 @@ export const counterSlice = createSlice({
       });
 
       state.totalAmount = Math.round(state.totalAmount * 100) / 100;
+      setCookies("cart", JSON.stringify(state), 7);
     },
   },
 });
 
 export const { addToCart } = counterSlice.actions;
 
-export default counterSlice.reducer;
+const cartReducer = counterSlice.reducer;
+
+export default cartReducer;

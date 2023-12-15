@@ -4,9 +4,11 @@ import useWindowWidth from "@/hooks/useWindowWidth";
 import classes from "./header.module.scss";
 import Link from "next/link";
 import { MEDIUM_SCREEN_SIZE } from "../../constants/global";
+import { useSelector } from "react-redux";
 
 const Header = ({ categories }) => {
   const { windowSize } = useWindowWidth();
+  const cart = useSelector(state=>state.cart)
 
   const categoriesList = categories.map((item) => (
     <li key={item.id} className={classes["fs-400"]}>
@@ -76,7 +78,8 @@ const Header = ({ categories }) => {
             <use href="/icons.svg#profile" />
           </svg>
         </Link>
-        <Link href="/">
+        <Link href="/" className={classes.relative}>
+          {cart.totalQuantity>0 && <span className={classes.badge}>{cart.totalQuantity}</span>}
           <svg>
             <use href="/icons.svg#bag" />
           </svg>

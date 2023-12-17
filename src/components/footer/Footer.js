@@ -4,9 +4,10 @@ import Link from "next/link";
 import classes from "./Footer.module.scss";
 
 const Footer = ({ categories }) => {
-  
   const categoriesList = categories.map((item) => (
-    <li key={Math.random()}><Link href={`/category/${item.id}`}>{item.name}</Link></li>
+    <li key={item.id}>
+      <Link href={`/category/${item.id}`}>{item.name}</Link>
+    </li>
   ));
 
   const policy = [
@@ -16,11 +17,11 @@ const Footer = ({ categories }) => {
     "Security",
     "Privacy",
     "EPR Compliance",
-  ].map((item) => <li>{item}</li>);
+  ].map((item, index) => <li key={index}>{item}</li>);
 
-  const aboutUs = ["Contact Us", "About Us", "Careers", "Press"].map((item) => (
-    <li>{item}</li>
-  ));
+  const aboutUs = ["Contact Us", "About Us", "Careers", "Press"].map(
+    (item, index) => <li key={index}>{item}</li>
+  );
 
   return (
     <div className={classes["footer__container"]}>

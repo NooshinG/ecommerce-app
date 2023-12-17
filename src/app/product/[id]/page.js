@@ -1,5 +1,3 @@
-
-
 import { supabase } from "@/lib/initSupabase";
 import Image from "next/image";
 import classes from "./style.module.scss";
@@ -31,8 +29,8 @@ const Product = async ({ params }) => {
   // console.log(product);
 
   return (
-    <div className={`${classes["padding-inline-default"]}`}>
-      <div className={classes["image-container"]}>
+    <div className={`${classes["padding-inline-default"]} ${classes.grid} `}>
+      <div className={`${classes["image-container"]} ${classes["pic-area"]}`}>
         <Image
           src={product[0].image}
           layout="fill"
@@ -41,17 +39,20 @@ const Product = async ({ params }) => {
           alt={product[0].title}
         />
       </div>
-      <div className={classes.flex}>
-        <p>{product[0].category.name}</p>
-        <p>{product[0].title}</p>
-        <p>{"$" + product[0].price}</p>
+      <div className={`${classes.flex} ${classes["info-area"]}`}>
+        <p className={classes.ctg}>{product[0].category.name}</p>
+        <p className={classes["item-title"]}>{product[0].title}</p>
+        <p className={classes.price}>{"$" + product[0].price}</p>
       </div>
-      <div>
-        <h2>Product Description</h2>
+      <div className={`${classes["btn-area"]}`}>
+        <AddToCart Title={product[0].title} Price={product[0].price} />
+      </div>
+      <div className={`${classes.flex} ${classes["desc-area"]}`}>
+        <div className={classes.separator}></div>
+        <h2 className={classes["desc-title"]}>
+          <span className={classes["title"]}>Product Description</span>
+        </h2>
         <p className={classes.desc}>{product[0].description}</p>
-      </div>
-      <div>
-        <AddToCart Title={product[0].title} Price={product[0].price}/>
       </div>
     </div>
   );

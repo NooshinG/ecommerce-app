@@ -5,7 +5,7 @@ import AddToCart from "@/components/addToCart/AddToCart";
 
 export const revalidate = 60;
 
-const Product = async ({ params }) => {
+const Page = async ({ params }) => {
   const { data: product } = await supabase
     .from("product")
     .select("*,category(name)")
@@ -45,7 +45,7 @@ const Product = async ({ params }) => {
         <p className={classes.price}>{"$" + product[0].price}</p>
       </div>
       <div className={`${classes["btn-area"]}`}>
-        <AddToCart Title={product[0].title} Price={product[0].price} />
+        <AddToCart ProductId={product[0].id} Price={product[0].price} />
       </div>
       <div className={`${classes.flex} ${classes["desc-area"]}`}>
         <div className={classes.separator}></div>
@@ -58,4 +58,4 @@ const Product = async ({ params }) => {
   );
 };
 
-export default Product;
+export default Page;

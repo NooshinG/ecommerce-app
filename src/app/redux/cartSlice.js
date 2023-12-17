@@ -21,7 +21,7 @@ export const counterSlice = createSlice({
     addToCart: (state, action) => {
       let idx = -1;
       state.items.forEach((item, index) => {
-        if (item.name === action.payload.name) {
+        if (item.id === action.payload.id) {
           idx = index;
         }
       });

@@ -4,7 +4,7 @@ import Product from "@/components/ui/Product";
 
 export const revalidate = 0;
 
-const Products = async ({ params }) => {
+const Page = async ({ params }) => {
   
   const { data : products } = await supabase
     .from("product")
@@ -35,4 +35,4 @@ const Products = async ({ params }) => {
   );
 };
 
-export default Products;
+export default Page;

@@ -1,0 +1,110 @@
+@use "../../styles/" as *;
+
+.item__container {
+  padding: 16px 8px;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+//   border: red solid 1px;
+  background-color: $clr-bright-400;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  //   grid-auto-rows: max-content;
+  gap: 0.5rem 0.8rem;
+  grid-template-areas:
+    "img ctg "
+    "img title "
+    "img qty "
+    "img price "
+    "btn btn ";
+}
+
+.img-area {
+  grid-area: img;
+}
+.ctg-area {
+  grid-area: ctg;
+  align-self: center;
+}
+.title-area {
+  grid-area: title;
+}
+.qty-area {
+  grid-area: qty;
+}
+.price-area {
+  grid-area: price;
+}
+.btn-area {
+  grid-area: btn;
+}
+
+.img__container {
+  width: 100%;
+  aspect-ratio: 12/10;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.img {
+  object-fit: cover;
+}
+
+.ctg,
+.title,
+.qty {
+  font-size: clamp(0.75rem, 0.6875rem + 0.3333vw, 1rem);
+}
+
+.ctg {
+  font-weight: 600;
+  color: $clr-emphasis-700;
+}
+
+.title,
+.qty {
+  font-weight: 500;
+  color: $clr-emphasis-400;
+}
+
+.price {
+  font-size: clamp(0.875rem, 0.8438rem + 0.1667vw, 1rem);
+  font-weight: 600;
+  color: $clr-emphasis-700;
+}
+
+@media (min-width: $screen-md) {
+  .price {
+    font-weight: 400;
+  }
+}
+
+.btn__container {
+  text-align: center;
+}
+
+.btn {
+  width: calc(50% - 2px);
+  padding-block: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: $clr-primary-400;
+}
+
+.h-seperator {
+  display: inline-block;
+  width: calc(100% - 16px);
+  height: 2px;
+  background-color: #0000001f;
+  margin-block: 0.25rem;
+}
+
+.v-seperator {
+  display: inline-block;
+  width: 2px;
+  height: 24px;
+  background-color: #0000001f;
+  // margin-block: 0.25rem;
+}

@@ -1,6 +1,14 @@
+import { useDispatch } from "react-redux";
+import { remove } from "@/app/redux/cartSlice";
 import classes from "./CartItem.module.scss";
 
 const CartItem = ({ Item, Qty }) => {
+  const dispatch = useDispatch();
+
+  const removeItemHandler = () => {
+    dispatch(remove({ id: Item.id }));
+  };
+
   return (
     <div className={`${classes.grid} ${classes["item__container"]}`}>
       <div className={`${classes["img-area"]} ${classes["img__container"]}`}>
@@ -18,11 +26,15 @@ const CartItem = ({ Item, Qty }) => {
       <p className={`${classes.price} ${classes["price-area"]}`}>
         ${Item.price * Qty}
       </p>
-      <div className={`${classes['btn__container']} ${classes["btn-area"]}`}>
-        <div className={classes['h-seperator']}></div>
-        <button className={classes.btn}>Move To Wishlist</button>
-        <div className={classes['v-seperator']}></div>
-        <button className={classes.btn}>Remove</button>
+      <div className={`${classes["btn__container"]} ${classes["btn-area"]}`}>
+        <div className={classes["h-seperator"]}></div>
+        <button type="button" className={classes.btn}>
+          Move To Wishlist
+        </button>
+        <div className={classes["v-seperator"]}></div>
+        <button type="button" className={classes.btn} onClick={removeItemHandler}>
+          Remove
+        </button>
       </div>
     </div>
   );

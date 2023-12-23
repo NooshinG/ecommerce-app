@@ -18,6 +18,25 @@ export const counterSlice = createSlice({
   name: "counter",
   initialState,
   reducers: {
+    remove: (state, action) => {
+      let qty = 0;
+      let totalPrice = 0;
+      let idx = -1;
+      state.items.forEach((item, index) => {
+        if (item.id == action.payload.id) {
+          idx = index;
+          qty = item.qty;
+          totalPrice = item.qty * item.unitPrice;
+        }
+      });
+
+      // console.log(idx)
+
+      state.totalAmount = state.totalAmount - totalPrice;
+      state.totalQuantity = state.totalQuantity - qty;
+      state.items.splice(idx, 1);
+
+    },
     addToCart: (state, action) => {
       let idx = -1;
       state.items.forEach((item, index) => {
@@ -46,7 +65,7 @@ export const counterSlice = createSlice({
   },
 });
 
-export const { addToCart } = counterSlice.actions;
+export const { addToCart , remove } = counterSlice.actions;
 
 const cartReducer = counterSlice.reducer;
 

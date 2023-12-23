@@ -5,24 +5,35 @@ const CartDetails = ({ totalPrice, discount }) => {
     <div
       className={`${classes["details__container"]} ${classes["padding-inline-default"]}`}
     >
-      <h2>Order Details</h2>
-      <div>
-        <span>Sub Total</span>
-        <span>${totalPrice}</span>
+      <h2 className={classes["title"]}>Order Details</h2>
+      <div className={classes["flex-column"]}>
+        <div>
+          <span>Sub Total</span>
+          <span>${totalPrice}</span>
+        </div>
+        <div>
+          <span>Discount</span>
+          <span>${discount}</span>
+        </div>
+        <div>
+          <span>Delivery Fee</span>
+          <span>-$0.00</span>
+        </div>
+        <div>
+          <span>Grand Total</span>
+          <span>${totalPrice}</span>
+        </div>
       </div>
-      <div>
-        <span>Discount</span>
-        <span>${discount}</span>
+      <div className={classes["order__container"]}>
+        <p>
+          <span>Total Bag Amount</span>
+          <br />
+          <span>{totalPrice}</span>
+        </p>
+        <button type="button" className={classes["order-btn"]}>
+          Place Order
+        </button>
       </div>
-      <div>
-        <span>Delivery Fee</span>
-        <span>-$0.00</span>
-      </div>
-      <div>
-        <span>Grand Total</span>
-        <span>${totalPrice}</span>
-      </div>
-      
     </div>
   );
 };

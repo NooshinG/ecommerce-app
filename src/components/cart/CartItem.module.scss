@@ -93,6 +93,10 @@
   color: $clr-primary-400;
 }
 
+.btn:hover{
+  cursor: pointer;
+}
+
 .h-seperator {
   display: inline-block;
   width: calc(100% - 16px);

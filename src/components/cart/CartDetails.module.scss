@@ -1,5 +1,71 @@
 @use "../../styles" as *;
 
-.details__container{
-    background-color: $clr-bright-400;
+.details__container {
+  background-color: $clr-bright-400;
+  padding-top: 1.25rem;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-block: 0.75rem 3.5rem;
+
+  > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: clamp(0.875rem, 0.8438rem + 0.1667vw, 1rem);
+    font-weight: 500;
+    color: $clr-emphasis-400;
+  }
+
+  > div:last-child {
+    color: $clr-dark-400;
+    font-weight: 600;
+  }
+}
+
+.title {
+  font-size: clamp(0.875rem, 0.7813rem + 0.5vw, 1.25rem);
+  font-weight: 600;
+  color: $clr-dark-400;
+}
+
+.order__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 0.5rem;
+
+  > p {
+    flex-grow: 1;
+    display: inline-block;
+    width: fit-content;
+    line-height: 1.25rem;
+
+    > span {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: $clr-emphasis-400;
+    }
+
+    > span:last-child {
+      font-size: 1rem;
+      color: $clr-emphasis-700;
+    }
+  }
+}
+
+.order-btn {
+  flex-grow: 3;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  background-color: $clr-primary-400;
+  color: $clr-bright-400;
+  font-size: clamp(0.875rem, 0.8438rem + 0.1667vw, 1rem);
+}
+
+.order-btn:hover {
+  cursor: pointer;
 }

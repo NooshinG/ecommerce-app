@@ -4,7 +4,7 @@
   padding: 16px 8px;
   margin-bottom: 1rem;
   border-radius: 8px;
-//   border: red solid 1px;
+  //   border: red solid 1px;
   background-color: $clr-bright-400;
 }
 
@@ -19,6 +19,17 @@
     "img qty "
     "img price "
     "btn btn ";
+}
+
+@media (min-width: $screen-md) {
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+    // gap: 0.5rem 0.8rem;
+    grid-template-areas:
+      "img ctg price qty subtotal"
+      "img title btn btn btn";
+    align-items: center;
+  }
 }
 
 .img-area {
@@ -39,6 +50,9 @@
 }
 .btn-area {
   grid-area: btn;
+}
+.subtotal-area {
+  grid-area: subtotal;
 }
 
 .img__container {
@@ -69,14 +83,22 @@
   color: $clr-emphasis-400;
 }
 
-.price {
+.price,
+.subtotal {
   font-size: clamp(0.875rem, 0.8438rem + 0.1667vw, 1rem);
   font-weight: 600;
   color: $clr-emphasis-700;
 }
 
+@media (max-width: $screen-md) {
+  .subtotal {
+    display: none;
+  }
+}
+
 @media (min-width: $screen-md) {
-  .price {
+  .price,
+  .subtotal {
     font-weight: 400;
   }
 }
@@ -93,7 +115,18 @@
   color: $clr-primary-400;
 }
 
-.btn:hover{
+@media (min-width: $screen-md) {
+  .btn {
+    padding: 0;
+    text-decoration: underline;
+  }
+
+  .btn:nth-of-type(2) {
+    color: $clr-error-400;
+  }
+}
+
+.btn:hover {
   cursor: pointer;
 }
 
@@ -111,4 +144,13 @@
   height: 24px;
   background-color: #0000001f;
   // margin-block: 0.25rem;
+}
+
+@media (min-width: $screen-md) {
+  .h-seperator,
+  .v-seperator {
+    display: none;
+    // width: 0;
+    // height: 0;
+  }
 }

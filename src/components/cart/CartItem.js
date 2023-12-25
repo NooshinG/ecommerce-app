@@ -24,6 +24,9 @@ const CartItem = ({ Item, Qty }) => {
         Qty: <span>{Qty}</span>
       </p>
       <p className={`${classes.price} ${classes["price-area"]}`}>
+        ${Item.price}
+      </p>
+      <p className={`${classes.subtotal} ${classes["subtotal-area"]}`}>
         ${Item.price * Qty}
       </p>
       <div className={`${classes["btn__container"]} ${classes["btn-area"]}`}>

@@ -1,9 +1,9 @@
 import classes from "./CartDetails.module.scss";
 
-const CartDetails = ({ totalPrice, discount }) => {
+const CartDetails = ({ totalPrice, discount ,className }) => {
   return (
     <div
-      className={`${classes["details__container"]} ${classes["padding-inline-default"]}`}
+      className={`${classes["details__container"]} ${classes["padding-inline-default"]} ${className}`}
     >
       <h2 className={classes["title"]}>Order Details</h2>
       <div className={classes["flex-column"]}>

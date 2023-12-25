@@ -49,8 +49,15 @@ const FullCart = ({cart}) => {
   return (
     <div className={classes["cart__container"]}>
       <h2 className={classes["cart__title"]}>My Cart</h2>
-      <div className={classes["padding-inline-default"]}>{Items}</div>
-      <CartDetails totalPrice={cart.totalAmount} discount={cart.discount} />
+      <div className={`${classes['items-area']} ${classes["padding-inline-default"]}`}>
+        <div className={classes['table__header']}>
+          <span>Product Name</span>
+          <span>Price</span>
+          <span>Qty</span>
+          <span>subtotal</span>
+        </div>
+        {Items}</div>
+      <CartDetails className='detail-area' totalPrice={cart.totalAmount} discount={cart.discount} />
     </div>
   );
 };

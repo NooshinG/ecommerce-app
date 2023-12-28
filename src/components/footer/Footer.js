@@ -24,6 +24,7 @@ const Footer = ({ categories }) => {
   );
 
   return (
+    <div className={classes.footer}>
     <div className={classes["footer__container"]}>
       <div className={classes["footer__more-info"]}>
         <h2>More about CORA'L</h2>
@@ -67,6 +68,7 @@ const Footer = ({ categories }) => {
           <p>© 2021 | Cora Leviene All Rights Reserved</p>
         </div>
       </div>
+    </div>
     </div>
   );
 };

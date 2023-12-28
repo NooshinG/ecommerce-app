@@ -14,8 +14,8 @@ export default async function Home() {
 
   return (
     <>
-      <Banner categories={categories} />
-      <Categories categories={categories} />
+      {/* <Banner categories={categories} /> */}
+      {/* <Categories categories={categories} /> */}
       {/* <NewArrivals products={products}/> */}
       {/* <Handpick />
       <Brands />

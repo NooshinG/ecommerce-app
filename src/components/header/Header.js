@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 
 const Header = ({ categories }) => {
   const { windowSize } = useWindowWidth();
-  const cart = useSelector(state=>state.cart)
+  const cart = useSelector((state) => state.cart);
 
   const categoriesList = categories.map((item) => (
     <li key={item.id} className={classes["fs-400"]}>
@@ -79,7 +79,9 @@ const Header = ({ categories }) => {
           </svg>
         </Link>
         <Link href="/cart" className={classes.relative}>
-          {cart.totalQuantity>0 && <span className={classes.badge}>{cart.totalQuantity}</span>}
+          {cart.totalQuantity > 0 && (
+            <span className={classes.badge}>{cart.totalQuantity}</span>
+          )}
           <svg>
             <use href="/icons.svg#bag" />
           </svg>
@@ -89,8 +91,10 @@ const Header = ({ categories }) => {
   );
 
   return (
-    <div className={`${classes.header} ${classes.flex} `}>
-      {windowSize < MEDIUM_SCREEN_SIZE ? smallScreenHeader : wideScreenHeader}
+    <div className={classes['header__container']}>
+      <div className={`${classes.header} ${classes.flex} `}>
+        {windowSize < MEDIUM_SCREEN_SIZE ? smallScreenHeader : wideScreenHeader}
+      </div>
     </div>
   );
 };

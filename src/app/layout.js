@@ -18,7 +18,7 @@ export default async function RootLayout({ children }) {
       <html lang="en">
         <body>
           <Header categories={categories} />
-          {children}
+          <div>{children}</div>
           <Footer categories={categories} />
         </body>
       </html>

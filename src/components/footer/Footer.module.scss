@@ -1,5 +1,9 @@
 @use "../../styles" as *;
 
+.footer{
+  align-self: end;
+}
+
 .footer__container,
 .flex,
 .flex__links,
@@ -11,7 +15,7 @@
 .footer__container {
   margin-top: $size-6;
   background-color: $clr-primary-400;
-  justify-content: space-between;
+  justify-content: space-between;  
 
   * {
     font-size: $size-3;

@@ -1,9 +1,5 @@
 @use "../../styles" as *;
 
-.header__container {
-  align-self: start;
-}
-
 .header {
   padding: $size-6 + $size-4 $size-4 $size-4 $size-4;
 }

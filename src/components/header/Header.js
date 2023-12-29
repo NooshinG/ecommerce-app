@@ -91,10 +91,8 @@ const Header = ({ categories }) => {
   );
 
   return (
-    <div className={classes['header__container']}>
-      <div className={`${classes.header} ${classes.flex} `}>
-        {windowSize < MEDIUM_SCREEN_SIZE ? smallScreenHeader : wideScreenHeader}
-      </div>
+    <div className={`${classes.header} ${classes.flex} `}>
+      {windowSize < MEDIUM_SCREEN_SIZE ? smallScreenHeader : wideScreenHeader}
     </div>
   );
 };

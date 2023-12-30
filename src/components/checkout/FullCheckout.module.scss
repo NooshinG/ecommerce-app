@@ -1,0 +1,8 @@
+@use "../../styles/" as *;
+
+.checkout__title {
+  font-size: clamp(1.25rem, 1.0313rem + 1.1667vw, 2.125rem);
+  font-weight: 600;
+  color: $clr-primary-400;
+  margin-block: 1rem clamp(1rem, 0.75rem + 1.3333vw, 2rem);
+}

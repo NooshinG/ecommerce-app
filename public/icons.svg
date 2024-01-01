@@ -326,4 +326,7 @@
   <symbol fill="none" viewBox="0 0 24 24" id="chevron-right" xmlns="http://www.w3.org/2000/svg">
     <path d="m9 4.5 7.5 7.5L9 19.5" stroke="#13101E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
   </symbol>
+  <symbol fill="none" viewBox="0 0 24 24" id="svg-close_form" xmlns="http://www.w3.org/2000/svg">
+<path d="M15 19.5 7.5 12 15 4.5" stroke="#1B4B66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
 </svg>

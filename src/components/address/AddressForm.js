@@ -1,7 +1,8 @@
 "use client";
 
-import { useForm } from "react-hook-form";
+import { get, useForm } from "react-hook-form";
 import classes from "./AddressForm.module.scss";
+import { setLocal, getLocal } from "@/lib/localStorage";
 
 const AddressForm = () => {
   const {
@@ -12,19 +13,31 @@ const AddressForm = () => {
 
   const onSubmit = (data, event) => {
     event.preventDefault();
-    console.log(data);
+    const newAddress = [data];
+    // console.log(address);
+
+    if (getLocal("address")) {
+      const existingAddress = JSON.parse(getLocal("address"));
+      //   console.log(existingAddress);
+      //   console.log(address);
+      //   console.log(JSON.stringify(existingAddress.concat(address)));
+      setLocal("address", JSON.stringify(existingAddress.concat(newAddress)));
+      return;
+    }
+
+    // address.push(data);
+    setLocal("address", JSON.stringify(newAddress));
+    return;
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} className={classes["address-area"]}>
       <div className={classes["form"]}>
-        <button type="button" className={classes['close-btn']}>
+        <button type="button" className={classes["close-btn"]}>
           <svg>
             <use href="/icons.svg#svg-close_form" />
           </svg>
-          <span>
-            Add New Address
-          </span>
+          <span>Add New Address</span>
         </button>
         <div className={`${classes["form__section"]} ${classes["form--text"]}`}>
           <h3 className={classes["section__title"]}>Contact Information</h3>

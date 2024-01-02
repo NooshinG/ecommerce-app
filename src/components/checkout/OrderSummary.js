@@ -62,7 +62,9 @@ const OrderSummary = ({ cart }) => {
   });
 
   return (
-    <div className={classes["summary__container"]}>
+    <div
+      className={`${classes["summary-area"]} ${classes["summary__container"]}`}
+    >
       <div className={classes.section}>
         <h2 className={classes["section__title"]}>Order Summary</h2>
         <div className={classes.summary}>{Items}</div>

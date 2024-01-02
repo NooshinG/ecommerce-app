@@ -1,8 +1,18 @@
 @use "../../styles/" as *;
 
-.summary__container{
-    max-width: 400px;
+.summary-area {
+  grid-area: summary;
 }
+
+// @media (min-width: $screen-md) {
+//   .summary-area {
+//     justify-self: center;
+//   }
+
+//   // .summary__container {
+//   //   max-width: 400px;
+//   // }
+// }
 
 .summary__container,
 .section,

@@ -1,0 +1,27 @@
+@use "../../styles/" as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  display: flex;
+  align-items: start;
+  gap: 0.5rem;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: clamp(0.875rem, 0.8438rem + 0.1667vw, 1rem);
+  font-weight: 500;
+  color: $clr-emphasis-400;
+
+  span:first-child{
+    font-weight: 600;
+    color: $clr-emphasis-700;
+  }
+}

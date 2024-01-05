@@ -1,10 +1,10 @@
 "use client";
 
-import { get, useForm } from "react-hook-form";
+import {  useForm } from "react-hook-form";
 import classes from "./AddressForm.module.scss";
 import { setLocal, getLocal } from "@/lib/localStorage";
 
-const AddressForm = () => {
+const AddressForm = ({ setAddress }) => {
   const {
     register,
     handleSubmit,
@@ -14,19 +14,16 @@ const AddressForm = () => {
   const onSubmit = (data, event) => {
     event.preventDefault();
     const newAddress = [data];
-    // console.log(address);
 
     if (getLocal("address")) {
       const existingAddress = JSON.parse(getLocal("address"));
-      //   console.log(existingAddress);
-      //   console.log(address);
-      //   console.log(JSON.stringify(existingAddress.concat(address)));
       setLocal("address", JSON.stringify(existingAddress.concat(newAddress)));
+      setAddress(existingAddress.concat(newAddress));
       return;
     }
 
-    // address.push(data);
     setLocal("address", JSON.stringify(newAddress));
+    setAddress(newAddress);
     return;
   };
 

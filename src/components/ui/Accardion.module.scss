@@ -1,0 +1,26 @@
+@use "../../styles/" as *;
+
+.btn {
+  width: 100%;
+  padding-block: 0.5rem;
+  margin-bottom: 1.5rem;
+  border: none;
+  border-bottom: 1px solid #0000001f;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: $clr-dark-400;
+  font-size: clamp(0.875rem, 0.7813rem + 0.5vw, 1.25rem);
+  font-weight: 600;
+
+  svg {
+    -webkit-transition: transform 2s;
+    -moz-transition: transform 2s;
+    -o-transition: transform 2s;
+    transition: transform 1s;
+  }
+}
+
+.rotate {
+  transform: rotate(180deg);
+}

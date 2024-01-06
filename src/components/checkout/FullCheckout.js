@@ -1,7 +1,5 @@
 import OrderSummary from "./OrderSummary";
 import classes from "./FullCheckout.module.scss";
-// import Address from "../address/AddressForm";
-import Accardion from "../ui/Accardion";
 import Address from "../address";
 
 const FullCheckout = (props) => {
@@ -12,9 +10,7 @@ const FullCheckout = (props) => {
       <h1 className={`${classes["title-area"]} ${classes["checkout__title"]}`}>
         Checkout
       </h1>
-      <Accardion title="Select Delivery Address">
-        <Address />
-      </Accardion>
+      <Address />
       <OrderSummary cart={props.cart} />
     </div>
   );

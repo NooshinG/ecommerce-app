@@ -4,28 +4,32 @@ import { useForm } from "react-hook-form";
 import React from "react";
 import classes from "./AddressList.module.scss";
 
-const AddressList = ({ SavedAddress }) => {
+const AddressList = ({ SavedAddress, selectAddressHandler }) => {
   const {
     register,
+    getValues,
     // handleSubmit,
     // formState: { errors },
     // watch,
   } = useForm({
     mode: "onChange",
     defaultValues: {
-      addressList: SavedAddress[0].pin,
+      addressList: "0",
     },
   });
 
   return (
-    <form className={classes.form}>
+    <form
+      className={classes.form}
+      onChange={() => selectAddressHandler(getValues("addressList"))}
+    >
       {React.Children.toArray(
         SavedAddress.map((item, index) => {
           return (
             <label htmlFor={`address${index}`} className={classes.label}>
               <input
                 type="radio"
-                value={item.pin}
+                value={index}
                 id={`address${index}`}
                 {...register("addressList")}
               />

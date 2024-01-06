@@ -1,0 +1,40 @@
+@use "../../styles/" as *;
+
+.address__container {
+  padding: 0.6rem 1rem;
+  background-color: $clr-accent-400;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.info__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  h3 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: $clr-emphasis-700;
+  }
+
+  p {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: $clr-emphasis-400;
+  }
+}
+
+.btn {
+  padding: 8px;
+  aspect-ratio: 1;
+  background-color: $clr-primary-400;
+  border-radius: 8px;
+}
+
+.empty__title {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}

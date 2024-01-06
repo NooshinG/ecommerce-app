@@ -329,4 +329,7 @@
   <symbol fill="none" viewBox="0 0 24 24" id="svg-close_form" xmlns="http://www.w3.org/2000/svg">
 <path d="M15 19.5 7.5 12 15 4.5" stroke="#1B4B66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </symbol>
+<symbol fill="none" viewBox="0 0 24 24" id="svg-pencil" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.69 20.25H4.5a.75.75 0 0 1-.75-.75v-4.19a.75.75 0 0 1 .22-.53L15.22 3.53a.75.75 0 0 1 1.06 0l4.19 4.19a.75.75 0 0 1 0 1.06L9.22 20.03a.75.75 0 0 1-.53.22ZM12.75 6 18 11.25M10.154 19.154 5 14" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
 </svg>

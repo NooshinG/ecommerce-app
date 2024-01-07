@@ -1,0 +1,11 @@
+@use "../../styles/" as *;
+
+.backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: rgba($color: $clr-dark-400, $alpha: 0.8);
+}

@@ -1,29 +1,22 @@
 "use client";
 
-import {  useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { addNewAddress } from "@/app/redux/addressSlice";
 import classes from "./AddressForm.module.scss";
-import { setLocal, getLocal } from "@/lib/localStorage";
 
-const AddressForm = ({ setAddress }) => {
+const AddressForm = () => {
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    // formState: { errors },
   } = useForm();
 
   const onSubmit = (data, event) => {
     event.preventDefault();
-    const newAddress = [data];
-
-    if (getLocal("address")) {
-      const existingAddress = JSON.parse(getLocal("address"));
-      setLocal("address", JSON.stringify(existingAddress.concat(newAddress)));
-      setAddress(existingAddress.concat(newAddress));
-      return;
-    }
-
-    setLocal("address", JSON.stringify(newAddress));
-    setAddress(newAddress);
+    dispatch(addNewAddress({ data: [data] }));
     return;
   };
 

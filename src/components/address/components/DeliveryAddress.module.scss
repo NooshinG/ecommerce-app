@@ -1,4 +1,4 @@
-@use "../../styles/" as *;
+@use "../../../styles/" as *;
 
 .address__container {
   padding: 0.6rem 1rem;
@@ -31,6 +31,10 @@
   aspect-ratio: 1;
   background-color: $clr-primary-400;
   border-radius: 8px;
+}
+
+.btn:hover{
+  cursor: pointer;
 }
 
 .empty__title {

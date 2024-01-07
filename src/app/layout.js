@@ -17,7 +17,7 @@ export default async function RootLayout({ children }) {
     <Providers>
       <html lang="en">
         <body>
-          <div id='address-modal'></div>
+          <div id='overlays'></div>
           <Header categories={categories} />
           <div>{children}</div>
           <Footer categories={categories} />

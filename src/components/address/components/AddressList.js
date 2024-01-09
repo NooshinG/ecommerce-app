@@ -3,25 +3,33 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { setDeliveryAddress } from "@/app/redux/addressSlice";
+import { setDeliveryAddress, removeAddress } from "@/app/redux/addressSlice";
 import classes from "./AddressList.module.scss";
 
 const AddressList = (props) => {
   const { deliverAddress, addressList } = useSelector((state) => state.address);
   const dispatch = useDispatch();
 
-  const { register, getValues } = useForm({
+  const DeliveryAddressHandler = (val) => {
+    dispatch(setDeliveryAddress({ id: val }));
+  };
+
+  const removeAddressHandler = (val) => {
+    dispatch(removeAddress({ id: val }));
+  };
+
+  const { register, getValues, reset, resetField, setValue } = useForm({
     mode: "onChange",
-    defaultValues: {
-      addressList: deliverAddress,
-    },
+    // defaultValues: {
+    //   addressList: deliverAddress,
+    // },
   });
 
   return (
     <form
       className={classes.form}
       onChange={() => {
-        dispatch(setDeliveryAddress({ id: getValues("addressList") }));
+        DeliveryAddressHandler(getValues("addressList"));
         if (props.closeListModal) {
           props.closeListModal();
         }
@@ -35,12 +43,28 @@ const AddressList = (props) => {
                 type="radio"
                 value={item.id}
                 id={item.id}
-                {...register("addressList")}
+                checked={deliverAddress == item.id}
+                {...register(`addressList`)}
               />
-              <span className={classes.info}>
-                <span>{item.fullName}</span>
-                <span>{`${item.street} ${item.city} ${item.state}`}</span>
-                <span>{item.mobileNumber}</span>
+
+              <span className={classes["info__container"]}>
+                <span className={classes.info}>
+                  <span>{item.fullName}</span>
+                  <span>{`${item.street} ${item.city} ${item.state}`}</span>
+                  <span>{item.mobileNumber}</span>
+                </span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    removeAddressHandler(item.id);
+                    // dispatch(removeAddress({ id: item.id }));
+                    // resetField("addressList", { defaultValue: deliverAddress });
+                  }}
+                >
+                  <svg>
+                    <use href="/icons.svg#delete-small" />
+                  </svg>
+                </button>
               </span>
             </label>
           );

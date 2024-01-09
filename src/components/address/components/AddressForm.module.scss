@@ -1,11 +1,18 @@
 @use "../../../styles/" as *;
 
-.address-area{
-    grid-area: address;
+.address-area {
+  grid-area: address;
+}
+
+@media (max-width: $screen-md) {
+  .address-area {
+    height: 100%;
+  }
 }
 
 .form {
-  min-height: 100vh;
+  // min-height: 100vh;
+  height: 100%;
   display: grid;
   grid-template-columns: 1fr;
   align-content: space-between;
@@ -106,4 +113,9 @@
   .close-btn {
     display: none;
   }
+}
+
+.submit-btn:hover,
+.close-btn:hover {
+  cursor: pointer;
 }

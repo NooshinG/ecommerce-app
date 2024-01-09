@@ -10,6 +10,19 @@
   display: flex;
   align-items: start;
   gap: 0.5rem;
+  cursor: pointer;
+}
+
+.info__container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+
+  button:hover {
+    cursor: pointer;
+  }
 }
 
 .info {
@@ -20,7 +33,7 @@
   font-weight: 500;
   color: $clr-emphasis-400;
 
-  span:first-child{
+  span:first-child {
     font-weight: 600;
     color: $clr-emphasis-700;
   }

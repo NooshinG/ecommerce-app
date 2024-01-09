@@ -1,29 +1,47 @@
 "use client";
 
 import { useForm } from "react-hook-form";
+import { DevTool } from "@hookform/devtools";
 import { useDispatch } from "react-redux";
 import { addNewAddress } from "@/app/redux/addressSlice";
 import classes from "./AddressForm.module.scss";
 
-const AddressForm = () => {
+const AddressForm = (props) => {
   const dispatch = useDispatch();
 
   const {
     register,
     handleSubmit,
-    // formState: { errors },
+    formState: { errors },
+    control,
+    getValues
   } = useForm();
 
-  const onSubmit = (data, event) => {
-    event.preventDefault();
-    dispatch(addNewAddress({ data: [data] }));
-    return;
+  const submitFormHandler = (data) => {
+    // event.preventDefault();
+    // event.stopPropegaton();
+    console.log(data);
+    // dispatch(addNewAddress({ data: [data] }));
+    // if (props.closeFormHandler) {
+    //   props.closeFormHandler();
+    // }
+    // return;
   };
 
+  const onError = (errors, e) => console.log(errors, e)
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={classes["address-area"]}>
+    <>
+    <form
+      onSubmit={handleSubmit(submitFormHandler,onError)}
+      className={classes["address-area"]}
+    >
       <div className={classes["form"]}>
-        <button type="button" className={classes["close-btn"]}>
+        <button
+          type="button"
+          className={classes["close-btn"]}
+          onClick={props.closeFormHandler}
+        >
           <svg>
             <use href="/icons.svg#svg-close_form" />
           </svg>
@@ -92,13 +110,19 @@ const AddressForm = () => {
             />
           </div>
         </div>
-        <input
+        <button
           type="submit"
-          value="Save Address"
+          // value="Save Address"
           className={classes["submit-btn"]}
-        />
+          // onClick={()=>console.log(errors)}
+          {...register("submitBtn")}
+        >
+          Save Address
+        </button>
       </div>
     </form>
+    <DevTool control={control} />
+    </>
   );
 };
 

@@ -53,9 +53,38 @@ export const addressSlice = createSlice({
         })
       );
     },
+
+    removeAddress: (state, action) => {
+      let index = state.addressList
+        .map((item) => item.id)
+        .indexOf(action.payload.id);
+
+      if (index > -1) {
+        state.addressList.splice(index, 1);
+
+        if (state.addressList.length == 0) {
+          state.deliverAddress = null;
+        }
+        if (
+          state.deliverAddress == action.payload.id &&
+          state.addressList.length > 0
+        ) {
+          state.deliverAddress = state.addressList[0].id;
+        }
+
+        localStorage.setItem(
+          LOCAL_STORAGE_ADDRESS_KEY,
+          JSON.stringify({
+            deliverId: state.deliverAddress,
+            list: state.addressList,
+          })
+        );
+      }
+    },
   },
 });
 
-export const { addNewAddress, setDeliveryAddress } = addressSlice.actions;
+export const { addNewAddress, setDeliveryAddress, removeAddress } =
+  addressSlice.actions;
 const addressReducer = addressSlice.reducer;
 export default addressReducer;

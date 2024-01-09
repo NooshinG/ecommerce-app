@@ -13,14 +13,30 @@ const SmallScreenAddressComponent = () => {
     isShowForm: false,
   });
 
+  if (showAddressInfo.isShowForm || showAddressInfo.isShowList) {
+    document.body.style.overflow = "hidden";
+  }
+
+  if (!showAddressInfo.isShowForm && !showAddressInfo.isShowList) {
+    document.body.style.overflow = "unset";
+  }
+
   const addressList = (
-    <Backdrop>
+    <Backdrop
+      closeModalHandler={() => {
+        setShowAddressInfo({
+          isShowForm: false,
+          isShowList: false,
+        });
+      }}
+    >
       <div className={`${classes["padding-inline-default"]} ${classes.modal}`}>
         <div className={classes.header}>
           <span>Select Delivery Address</span>
           <button
             type="button"
-            onClick={() => {
+            onClick={(event) => {
+              event.stopPropagation();
               setShowAddressInfo({
                 isShowForm: true,
                 isShowList: false,
@@ -43,11 +59,25 @@ const SmallScreenAddressComponent = () => {
   );
 
   const addressForm = (
-    <Backdrop>
+    <Backdrop
+      closeModalHandler={() => {
+        setShowAddressInfo({
+          isShowForm: false,
+          isShowList: false,
+        });
+      }}
+    >
       <div
         className={`${classes["padding-inline-default"]} ${classes.formModal}`}
       >
-        <AddressForm />
+        <AddressForm
+          closeFormHandler={() => {
+            setShowAddressInfo({
+              isShowForm: false,
+              isShowList: true,
+            });
+          }}
+        />
       </div>
     </Backdrop>
   );
@@ -64,6 +94,7 @@ const SmallScreenAddressComponent = () => {
       />
       {showAddressInfo.isShowList && createPortal(addressList, addressModal)}
       {showAddressInfo.isShowForm && createPortal(addressForm, addressModal)}
+      {/* {showAddressInfo.isShowForm && addressForm} */}
     </>
   );
 };

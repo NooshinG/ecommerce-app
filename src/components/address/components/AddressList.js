@@ -28,6 +28,7 @@ const AddressList = (props) => {
   return (
     <form
       className={classes.form}
+      defaultValue={deliverAddress}
       onChange={() => {
         DeliveryAddressHandler(getValues("addressList"));
         if (props.closeListModal) {

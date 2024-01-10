@@ -7,7 +7,7 @@
   width: 100%;
   background-color: $clr-bright-400;
   padding-block: 1rem;
-  z-index: 50;
+  
 }
 
 .modal {
@@ -16,11 +16,13 @@
   gap: 1rem;
   bottom: 0;
   border-radius: 8px 8px 0 0;
+  z-index: 50;
 }
 
 .formModal {
   top: 0;
   height: 100%;
+  z-index: 1000;
 }
 
 .header {

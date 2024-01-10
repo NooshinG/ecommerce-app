@@ -5,7 +5,6 @@ const Backdrop = (props) => {
     <div
       className={classes.backdrop}
       onClick={(event) => {
-        event.preventDefault();
         if (event.target == event.currentTarget) {
           props.closeModalHandler();
         }

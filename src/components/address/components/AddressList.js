@@ -18,7 +18,7 @@ const AddressList = (props) => {
     dispatch(removeAddress({ id: val }));
   };
 
-  const { register, getValues, reset, resetField, setValue } = useForm({
+  const { register, getValues } = useForm({
     mode: "onChange",
     // defaultValues: {
     //   addressList: deliverAddress,

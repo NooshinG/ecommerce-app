@@ -1,6 +1,7 @@
 import OrderSummary from "./OrderSummary";
 import classes from "./FullCheckout.module.scss";
 import Address from "../address";
+import Payment from "../payment";
 
 const FullCheckout = (props) => {
   return (
@@ -12,6 +13,7 @@ const FullCheckout = (props) => {
       </h1>
       <Address />
       <OrderSummary cart={props.cart} />
+      <Payment />
     </div>
   );
 };

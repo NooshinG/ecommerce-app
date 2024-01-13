@@ -1,5 +1,9 @@
 @use "../../../styles" as *;
 
+.payment-area{
+  grid-area: payment;
+}
+
 .form {
   display: flex;
   flex-direction: column;

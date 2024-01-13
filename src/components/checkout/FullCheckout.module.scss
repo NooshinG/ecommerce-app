@@ -14,6 +14,7 @@
   .checkout__container {
     gap: 1rem 5rem;
     grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto 1fr;
     grid-template-areas:
       "title title"
       "address summary"

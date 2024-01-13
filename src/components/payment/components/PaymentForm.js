@@ -17,38 +17,40 @@ const PaymentForm = (props) => {
     console.log(getValues("paymentCard"));
     setFormDefaultValue(getValues("paymentCard"));
   };
-  
+
   const content = (
-    <div>
-      <form
-        className={classes.form}
-        // defaultValue={formDefaultValue}
-        onChange={onSubmit}
-      >
-        {props.data.map((card) => {
-          return (
-            <label key={card.id} htmlFor={card.id} className={classes.label}>
-              <div className={classes["payment__info"]}>
-                <svg className={classes.logo}>
-                  <use href={`/icons.svg#${card.image}`} />
-                </svg>
-                <h2 className={classes.title}>{card.title}</h2>
-              </div>
-              <input
-                type="radio"
-                value={card.id}
-                id={card.id}
-                checked={card.id == formDefaultValue}
-                {...register("paymentCard")}
-              />
-            </label>
-          );
-        })}
-      </form>
+    <div className={classes["payment-area"]}>
+      <Accardion title="Payments">
+        <form
+          className={classes.form}
+          // defaultValue={formDefaultValue}
+          onChange={onSubmit}
+        >
+          {props.data.map((card) => {
+            return (
+              <label key={card.id} htmlFor={card.id} className={classes.label}>
+                <div className={classes["payment__info"]}>
+                  <svg className={classes.logo}>
+                    <use href={`/icons.svg#${card.image}`} />
+                  </svg>
+                  <h2 className={classes.title}>{card.title}</h2>
+                </div>
+                <input
+                  type="radio"
+                  value={card.id}
+                  id={card.id}
+                  checked={card.id == formDefaultValue}
+                  {...register("paymentCard")}
+                />
+              </label>
+            );
+          })}
+        </form>
+      </Accardion>
     </div>
   );
 
-  return <Accardion title="Payments">{content}</Accardion>;
+  return content;
 };
 
 export default PaymentForm;

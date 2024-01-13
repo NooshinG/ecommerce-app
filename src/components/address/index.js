@@ -9,13 +9,19 @@ import SmallScreenAddressComponent from "./components/SmallScreenAddressComponen
 const Address = () => {
   const { windowSize } = useWindowWidth();
 
-  return windowSize < MEDIUM_SCREEN_SIZE ? (
-    <SmallScreenAddressComponent />
-  ) : (
-    <Accardion title="Select Delivery Address">
-      <AddressComponent />
-    </Accardion>
+  const content = (
+    <div style={{ gridArea: 'address',height:'fit-content' }}>
+      {windowSize < MEDIUM_SCREEN_SIZE ? (
+        <SmallScreenAddressComponent />
+      ) : (
+        <Accardion title="Select Delivery Address">
+          <AddressComponent />
+        </Accardion>
+      )}
+    </div>
   );
+
+  return content;
 };
 
 export default Address;

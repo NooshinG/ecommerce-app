@@ -1,3 +1,4 @@
+import Link from "next/link";
 import classes from "./CartDetails.module.scss";
 
 const CartDetails = ({ totalPrice, discount ,className }) => {
@@ -30,9 +31,9 @@ const CartDetails = ({ totalPrice, discount ,className }) => {
           <br />
           <span>{totalPrice}</span>
         </p>
-        <button type="button" className={classes["order-btn"]}>
+        <Link href={'./checkout'} className={classes["order-btn"]}>
           Place Order
-        </button>
+        </Link>
       </div>
     </div>
   );

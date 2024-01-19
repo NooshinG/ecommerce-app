@@ -19,6 +19,13 @@ export const counterSlice = createSlice({
   name: "counter",
   initialState,
   reducers: {
+    clearCart: (state) => {
+      state.totalAmount = 0;
+      state.totalQuantity = 0;
+      state.discount = 0;
+      state.items = [];
+      localStorage.removeItem("cart");
+    },
     remove: (state, action) => {
       let qty = 0;
       let totalPrice = 0;
@@ -68,7 +75,7 @@ export const counterSlice = createSlice({
   },
 });
 
-export const { addToCart, remove } = counterSlice.actions;
+export const { addToCart, remove, clearCart } = counterSlice.actions;
 
 const cartReducer = counterSlice.reducer;
 

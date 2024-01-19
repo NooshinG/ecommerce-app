@@ -7,7 +7,12 @@
     "title"
     "address"
     "summary"
-    "payment";
+    "payment"
+    "payBtn";
+}
+
+.title-area {
+  grid-area: title;
 }
 
 @media (min-width: $screen-md) {
@@ -18,12 +23,9 @@
     grid-template-areas:
       "title title"
       "address summary"
-      "payment summary";
+      "payment summary"
+      "payBtn summary";
   }
-}
-
-.title-area{
-  grid-area: title;
 }
 
 .checkout__title {

@@ -1,12 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import classes from "./banner.module.scss";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import useWindowWidth from "@/hooks/useWindowWidth";
 import { MEDIUM_SCREEN_SIZE } from "../../constants/global";
-import Redirection from "../ui/Redirection";
 
 const Banner = ({ categories }) => {
   const { windowSize } = useWindowWidth();
@@ -24,14 +24,8 @@ const Banner = ({ categories }) => {
         <Image src={item.url} alt={item.title} fill={true} />
 
         <div className={classes["banner__text"]}>
-          <h2
-            className={`${classes["fs-primary-banner-title"]} ${classes["fw-800"]}`}
-          >
-            {item.title}
-          </h2>
-          <p
-            className={`${classes["fs-primary-banner-desc"]} ${classes["fw-500"]}`}
-          >
+          <h2 className={`${classes["banner__title"]}`}>{item.title}</h2>
+          <p className={`${classes["banner__description"]} `}>
             {`${item.desc.substring(0, 83)} ${
               item.desc.substring(0, 15).trim().length < item.desc.length
                 ? "..."
@@ -39,12 +33,12 @@ const Banner = ({ categories }) => {
             }`}
           </p>
           {windowSize >= MEDIUM_SCREEN_SIZE && (
-            <Redirection path={`/category/${item.id}`}>
+            <Link href={`/category/${item.id}`} className={classes["button"]}>
               <svg>
                 <use href="/icons.svg#arrow" />
               </svg>
               See more
-            </Redirection>
+            </Link>
           )}
         </div>
       </div>
@@ -52,7 +46,7 @@ const Banner = ({ categories }) => {
   });
 
   return (
-    <div className={classes["padding-inline-default"]}>
+    <div className={classes["section"]}>
       <Slide indicators={true} arrows={false}>
         {slidesMap}
       </Slide>

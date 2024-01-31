@@ -1,0 +1,99 @@
+@use "../../styles" as *;
+
+.empty-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.empty-bag {
+  width: 200px;
+  height: 200px;
+}
+
+.empty-title {
+  font-size: $fs-8;
+  font-weight: $fw-700;
+  color: $clr-dark;
+}
+
+.empty-message {
+  font-size: $fs-4;
+  font-weight: $fw-500;
+  color: $clr-dark;
+  line-height: 1.125rem;
+  text-align: center;
+  padding-inline: 20vw;
+}
+
+.shop-link {
+  color: $clr-primary;
+  border: $clr-primary Solid 1px;
+  border-radius: 3px;
+  padding: 5px 16px;
+}
+
+.shop-link:hover {
+  color: $clr-accent;
+  background-color: $clr-primary;
+}
+
+.cart__container {
+  background-color: $clr-accent;
+  padding-top: 1rem;
+
+  @media (min-width: $screen-md) {
+    background-color: $clr-bright;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem clamp(1rem, -7rem + 16vw, 8rem);
+    grid-template-areas:
+      "title title"
+      "items details";
+    > h2 {
+      grid-area: title;
+    }
+  }
+}
+
+.items__container{
+  @extend %pd-inline
+}
+
+@media (min-width: $screen-md) {
+  .items-area {
+    grid-area: items;
+  }
+
+  .detail-area {
+    grid-area: details;
+  }
+}
+
+.cart__title {
+  margin-bottom: 1rem;
+  padding: 0.9rem 1rem;
+  font-size: $fs-m-2;
+  font-weight: $fw-600;
+  background-color: $clr-bright;
+
+  @media (min-width: $screen-md) {
+    padding-inline: 1.25rem;
+  }
+}
+
+.table__header {
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 1fr);
+  padding-block-end: 0.5rem;
+  border-bottom: 1px Solid $clr-gray;
+  color: $clr-emphasis-low;
+  font-size: 1rem;
+  font-weight: $fw-500;
+
+  @media (max-width: $screen-md) {
+    display: none;
+  }
+}

@@ -2,8 +2,8 @@
 
 .address__container {
   padding: 0.6rem 1rem;
-  background-color: $clr-accent-400;
-  border-radius: 8px;
+  background-color: $clr-accent;
+  border-radius: $border-radius;
   display: flex;
   justify-content: space-between;
 }
@@ -14,23 +14,23 @@
   justify-content: space-between;
 
   h3 {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: $clr-emphasis-700;
+    font-size: $fs-4;
+    font-weight: $fw-600;
+    color: $clr-emphasis-high;
   }
 
   p {
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: $clr-emphasis-400;
+    font-size: $fs-4;
+    font-weight: $fw-500;
+    color: $clr-emphasis-low;
   }
 }
 
 .btn {
   padding: 8px;
   aspect-ratio: 1;
-  background-color: $clr-primary-400;
-  border-radius: 8px;
+  background-color: $clr-primary;
+  border-radius: $border-radius;
 }
 
 .btn:hover{

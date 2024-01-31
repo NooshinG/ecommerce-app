@@ -1,4 +1,8 @@
-@use "../../styles" as *;
+@use "../../styles/" as *;
+
+.section {
+  @extend %pd-inline;
+}
 
 .banner__container {
   position: relative;
@@ -14,25 +18,15 @@
     top: 0;
     left: 0;
   }
-
-  // button {
-  //   position: relative;
-  // }
 }
-
-// @media (min-width: $screen-md) {
-//   .banner__container {
-//     height: 25rem;
-//   }
-// }
 
 .banner__text {
   position: absolute;
   right: 0;
   top: 50%;
   width: 55%;
-  height: 70%;
-  background-color: rgba($clr-bright-400, 0.7);
+  // height: 80%;
+  background-color: rgba($clr-bright, 0.7);
   border-radius: $border-radius 0 0 $border-radius;
   padding: $size-3 $size-2;
   transform: translateY(-50%);
@@ -40,4 +34,14 @@
   > * {
     margin-bottom: $size-2;
   }
+}
+
+.banner__title {
+  font-size: $fs-l-1;
+  font-weight: $fw-800;
+}
+
+.banner__description {
+  font-size: $fs-s-3;
+  font-weight: $fw-500;
 }

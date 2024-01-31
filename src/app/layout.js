@@ -17,9 +17,13 @@ export default async function RootLayout({ children }) {
     <Providers>
       <html lang="en">
         <body>
-          <div id='overlays'></div>
+          <div id="overlays"></div>
           <Header categories={categories} />
-          <div>{children}</div>
+          <div
+            style={{ minHeight: "calc(100vh - 25rem)", paddingBottom: "2.5rem" }}
+          >
+            {children}
+          </div>
           <Footer categories={categories} />
         </body>
       </html>

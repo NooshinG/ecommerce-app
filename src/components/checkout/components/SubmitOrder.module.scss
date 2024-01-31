@@ -5,18 +5,18 @@
 }
 
 .checkout__pay {
-  color: $clr-bright-400;
-  font-size: 0.875rem;
+  color: $clr-bright;
+  font-size: $fs-4;
   font-weight: 600;
-  background-color: $clr-primary-400;
-  border-radius: 8px;
+  background-color: $clr-primary;
+  border-radius: $border-radius;
   padding-block: 0.6rem;
 }
 
 .checkout__pay:disabled {
-  color: $clr-primary-400;
-  background-color: $clr-bright-400;
-  border: 1px solid $clr-primary-400;
+  color: $clr-primary;
+  background-color: $clr-bright;
+  border: 1px solid $clr-primary;
 }
 
 @media (min-width: $screen-md) {

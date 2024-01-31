@@ -1,7 +1,7 @@
-@use "../../styles" as *;
+@use "../../../styles" as *;
 
 .details__container {
-  background-color: $clr-bright-400;
+  @extend %pd-inline , %bg-bright;
   padding-top: 1.25rem;
 }
 
@@ -15,21 +15,21 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    font-size: clamp(0.875rem, 0.8438rem + 0.1667vw, 1rem);
-    font-weight: 500;
-    color: $clr-emphasis-400;
+    font-size: $fs-r-1;
+    font-weight: $fw-500;
+    color: $clr-emphasis-low;
   }
 
   > div:last-child {
-    color: $clr-dark-400;
-    font-weight: 600;
+    color: $clr-dark;
+    font-weight: $fw-600;
   }
 }
 
 .title {
-  font-size: clamp(0.875rem, 0.7813rem + 0.5vw, 1.25rem);
-  font-weight: 600;
-  color: $clr-dark-400;
+  font-size: $fs-r-2;
+  font-weight: $fw-600;
+  color: $clr-dark;
 }
 
 .order__container {
@@ -45,14 +45,14 @@
     line-height: 1.25rem;
 
     > span {
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: $clr-emphasis-400;
+      font-size: $fs-3;
+      font-weight: $fw-500;
+      color: $clr-emphasis-low;
     }
 
     > span:last-child {
-      font-size: 1rem;
-      color: $clr-emphasis-700;
+      font-size: $fs-5;
+      color: $clr-emphasis-high;
     }
   }
 }
@@ -60,10 +60,10 @@
 .order-btn {
   flex-grow: 3;
   padding: 0.6rem 1rem;
-  border-radius: 8px;
-  background-color: $clr-primary-400;
-  color: $clr-bright-400;
-  font-size: clamp(0.875rem, 0.8438rem + 0.1667vw, 1rem);
+  border-radius: $border-radius;
+  background-color: $clr-primary;
+  color: $clr-bright;
+  font-size: $fs-r-1;
   text-align: center;
 }
 

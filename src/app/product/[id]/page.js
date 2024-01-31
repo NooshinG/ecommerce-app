@@ -29,7 +29,7 @@ const Page = async ({ params }) => {
   // console.log(product);
 
   return (
-    <div className={`${classes["padding-inline-default"]} ${classes.grid} `}>
+    <div className={` ${classes.grid} `}>
       <div className={`${classes["image-container"]} ${classes["pic-area"]}`}>
         <Image
           src={product[0].image}

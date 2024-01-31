@@ -30,7 +30,7 @@ const SmallScreenAddressComponent = () => {
         });
       }}
     >
-      <div className={`${classes["padding-inline-default"]} ${classes.modal}`}>
+      <div className={`${classes["pd-inline"]} ${classes.modal}`}>
         <div className={classes.header}>
           <span>Select Delivery Address</span>
           <button
@@ -68,7 +68,7 @@ const SmallScreenAddressComponent = () => {
       }}
     >
       <div
-        className={`${classes["padding-inline-default"]} ${classes.formModal}`}
+        className={`${classes["pd-inline"]} ${classes.formModal}`}
       >
         <AddressForm
           closeFormHandler={() => {

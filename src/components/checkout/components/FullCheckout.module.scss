@@ -1,6 +1,8 @@
-@use "../../styles/" as *;
+@use "../../../styles/" as *;
 
 .checkout__container {
+  @extend %pd-inline;
+
   display: grid;
   gap: 1rem;
   grid-template-areas:
@@ -9,14 +11,8 @@
     "summary"
     "payment"
     "payBtn";
-}
 
-.title-area {
-  grid-area: title;
-}
-
-@media (min-width: $screen-md) {
-  .checkout__container {
+  @media (min-width: $screen-md) {
     gap: 1rem 5rem;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: auto auto 1fr;
@@ -28,9 +24,13 @@
   }
 }
 
+.title-area {
+  grid-area: title;
+}
+
 .checkout__title {
-  font-size: clamp(1.25rem, 1.0313rem + 1.1667vw, 2.125rem);
-  font-weight: 600;
-  color: $clr-primary-400;
+  font-size: $fs-m-2;
+  font-weight: $fw-600;
+  color: $clr-primary;
   margin-block: 1rem clamp(1rem, 0.75rem + 1.3333vw, 2rem);
 }

@@ -25,10 +25,10 @@ const Categories = ({ categories }) => {
   return (
     windowSize < MEDIUM_SCREEN_SIZE && (
       <div
-        className={` ${classes["categories"]} ${classes["padding-inline-default"]}`}
+        className={` ${classes["categories"]} ${classes["pd-inline"]}`}
       >
         <h2
-          className={`${classes["fs-section-title"]} ${classes["fw-600"]} ${classes["text-emphasis-700"]}`}
+          className={`${classes["fs-section-title"]} ${classes["title"]}`}
         >
           Top Categories
         </h2>

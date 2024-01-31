@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Product from "../ui/Product";
+import Product from "../product";
 
 import { SMALL_SCREEN_SIZE, MEDIUM_SCREEN_SIZE } from "../../constants/global";
 import { Slide } from "react-slideshow-image";

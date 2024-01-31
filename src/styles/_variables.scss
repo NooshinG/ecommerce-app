@@ -1,95 +1,98 @@
+//media breakpoints
 $screen-sm: 25em;
 $screen-md: 50em;
 
+//default border radius
 $border-radius: 8px;
 
-$item-gap: 0.3rem;
+//default padding inline
+%pd-inline {
+  padding-inline: clamp(1rem, 0.9375rem + 0.3333vw, 1.25rem);
+}
 
 // colors
-$clr-primary-400: hsl(202, 58%, 25%);
-$clr-tint-400: hsl(184, 21%, 49%);
-$clr-error-400: hsl(349, 100%, 35%);
-$clr-highlight-400: hsl(22, 100%, 65%);
-$clr-dark-400: hsl(253, 30%, 9%);
-$clr-accent-400: hsl(0, 0%, 96%);
-$clr-bright-400: hsl(0, 0%, 100%);
-$clr-gray-400: hsl(0, 0%, 95%);
-$clr-light-400: hsl(0, 0%, 71%);
-$clr-emphasis-700: hsl(251, 21%, 10%);
-$clr-emphasis-400: hsl(0, 0%, 38%);
+$clr-primary: hsl(202, 58%, 25%);
+$clr-tint: hsl(184, 21%, 49%);
+$clr-error: hsl(349, 100%, 35%);
+$clr-highlight: hsl(22, 100%, 65%);
+$clr-dark: hsl(253, 30%, 9%);
+$clr-accent: hsl(0, 0%, 96%);
+$clr-bright: hsl(0, 0%, 100%);
+$clr-gray: hsl(0, 0%, 95%);
+$clr-light: hsl(0, 0%, 71%);
+$clr-emphasis-high: hsl(251, 21%, 10%);
+$clr-emphasis-low: hsl(0, 0%, 38%);
 
 $clr-list: (
-  primary-400: $clr-primary-400,
-  tint-400: $clr-tint-400,
-  error-400: $clr-error-400,
-  highlight-400: $clr-highlight-400,
-  dark-400: $clr-dark-400,
-  accent-400: $clr-accent-400,
-  bright-400: $clr-bright-400,
-  gray-400: $clr-gray-400,
-  light-400: $clr-light-400,
-  emphasis-700: $clr-emphasis-700,
-  emphasis-400: $clr-emphasis-400,
+  primary: $clr-primary,
+  tint: $clr-tint,
+  error: $clr-error,
+  highlight: $clr-highlight,
+  dark: $clr-dark,
+  accent: $clr-accent,
+  bright: $clr-bright,
+  gray: $clr-gray,
+  light: $clr-light,
+  emphasis-high: $clr-emphasis-high,
+  emphasis-low: $clr-emphasis-low,
 );
 
 //font size
-$fs-200: 0.625rem;
-$fs-300: 0.75rem;
-$fs-400: 0.875rem;
-$fs-500: 1rem;
-$fs-550: 1.125rem;
-$fs-600: 1.5rem;
-$fs-650: 1.75rem;
-$fs-680: 1.875rem;
-$fs-690: 2rem;
-$fs-700: 2.125rem;
-$fs-800: 2.5rem;
-$fs-850: 3.25rem;
-$fs-900: 3.75rem;
+$fs-1: 0.5rem;
+$fs-2: 0.625rem;
+$fs-3: 0.75rem;
+$fs-4: 0.875rem;
+$fs-5: 1rem;
+$fs-6: 1.125rem;
+$fs-7: 1.5rem;
+$fs-8: 1.75rem;
+$fs-9: 1.875rem;
+$fs-10: 2rem;
+$fs-11: 2.125rem;
+$fs-12: 2.5rem;
+$fs-13: 2.75rem;
+$fs-14: 3rem;
+$fs-15: 3.25rem;
+$fs-16: 3.75rem;
 
 $fs-primary-list: (
-  200: $fs-200,
-  300: $fs-300,
-  400: $fs-400,
-  500: $fs-500,
-  550: $fs-550,
-  600: $fs-600,
-  650: $fs-650,
-  680: $fs-680,
-  690: $fs-690,
-  700: $fs-700,
-  800: $fs-800,
-  850: $fs-850,
-  900: $fs-900,
+  1: $fs-1,
+  2: $fs-2,
+  3: $fs-3,
+  4: $fs-4,
+  5: $fs-5,
+  6: $fs-5,
+  7: $fs-7,
+  8: $fs-8,
+  9: $fs-9,
+  10: $fs-10,
+  11: $fs-11,
+  12: $fs-12,
+  13: $fs-13,
+  14: $fs-14,
+  15: $fs-15,
+  16: $fs-16,
 );
 
-$fs-primary-banner-title: $fs-600;
-$fs-primary-banner-desc: $fs-300;
-$fs-section-title: $fs-400;
-$fs-brand: $fs-300;
-$fs-product-name: $fs-300;
-$fs-price: $fs-400;
-$fs-category: $fs-400;
-$fs-secondary-banner-small-title: $fs-200;
-$fs-secondary-banner-bold-title: $fs-500;
-$fs-secondary-banner-semi-bold-title: $fs-400;
-$fs-footer: $fs-400;
-
-$fs-secondary-list: (
-  primary-banner-title: $fs-primary-banner-title,
-  primary-banner-desc: $fs-primary-banner-desc,
-  section-title: $fs-section-title,
-  brand: $fs-brand,
-  price: $fs-price,
-  category: $fs-category,
-  secondary-banner-small-title: $fs-secondary-banner-small-title,
-  secondary-banner-bold-title: $fs-secondary-banner-bold-title,
-  secondary-banner-semi-bold-title: $fs-secondary-banner-semi-bold-title,
-  footer: $fs-footer,
-);
+// font size clamps
+//small :
+$fs-s-1: clamp(0.75rem, 0.7188rem + 0.1667vw, 0.875rem);
+$fs-s-2: clamp(0.75rem, 0.6875rem + 0.3333vw, 1rem);
+$fs-s-3: clamp(0.75rem, 0.5rem + 1.3333vw, 1.75rem);
+//regular :
+$fs-r-1: clamp(0.875rem, 0.8438rem + 0.1667vw, 1rem);
+$fs-r-2: clamp(0.875rem, 0.7813rem + 0.5vw, 1.25rem);
+$fs-r-3: clamp(0.875rem, 0.7188rem + 0.8333vw, 1.5rem);
+$fs-r-4: clamp(0.875rem, 0.5625rem + 1.6667vw, 2.125rem);
+$fs-r-5: clamp(0.875rem, 0.1563rem + 3.8333vw, 3.75rem);
+//medium :
+$fs-m-1: clamp(1rem, 0.7188rem + 1.5vw, 2.125rem);
+$fs-m-2: clamp(1.25rem, 1.0313rem + 1.1667vw, 2.125rem);
+$fs-m-3: clamp(1.25rem, 0.9375rem + 1.6667vw, 2.5rem);
+//large :
+$fs-l-1: clamp(1.5rem, 0.9375rem + 3vw, 3.75rem);
 
 //font weight
-
 $fw-400: 400;
 $fw-500: 500;
 $fw-600: 600;

@@ -1,18 +1,8 @@
-@use "../../styles/" as *;
+@use "../../../styles/" as *;
 
 .summary-area {
   grid-area: summary;
 }
-
-// @media (min-width: $screen-md) {
-//   .summary-area {
-//     justify-self: center;
-//   }
-
-//   // .summary__container {
-//   //   max-width: 400px;
-//   // }
-// }
 
 .summary__container,
 .section,
@@ -34,7 +24,6 @@
 
 .item__container {
   display: grid;
-  //   grid-template-columns: 1fr 3fr;
   grid-template-rows: repeat(3, 1.5rem);
   grid-auto-columns: max-content;
   gap: 0.5rem 1rem;
@@ -73,26 +62,24 @@
 
 .ctg,
 .item__info {
-  font-size: clamp(0.75rem, 0.6875rem + 0.3333vw, 1rem);
-  font-weight: 600;
-  color: $clr-emphasis-700;
+  font-size: $fs-s-2;
+  font-weight: $fw-600;
+  color: $clr-emphasis-high;
 }
 
 .item__info {
-  font-weight: 400;
-  color: $clr-emphasis-400;
+  font-weight: $fw-400;
+  color: $clr-emphasis-low;
 }
 
 .section__title {
   padding-block: 0.5rem;
-  font-size: clamp(0.875rem, 0.7813rem + 0.5vw, 1.25rem);
-  font-weight: 600;
-  color: $clr-emphasis-400;
-}
+  font-size: $fs-r-2;
+  font-weight: $fw-600;
+  color: $clr-emphasis-low;
 
-@media (min-width: $screen-md) {
-  .section__title {
-    color: $clr-dark-400;
+  @media (min-width: $screen-md) {
+    color: $clr-dark;
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   }
 }
@@ -101,7 +88,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  color: $clr-emphasis-700;
+  color: $clr-emphasis-high;
 }
 
 .detail__info {
@@ -111,5 +98,5 @@
 }
 
 .regular__title {
-  color: $clr-emphasis-400;
+  color: $clr-emphasis-low;
 }

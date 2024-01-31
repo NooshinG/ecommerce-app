@@ -1,8 +1,8 @@
 "use client";
 
 import { useSelector } from "react-redux";
-import EmptyCart from "../cart/EmptyCart";
-import FullCheckout from "./FullCheckout";
+import EmptyCart from "../cart/components/EmptyCart";
+import FullCheckout from "./components/FullCheckout";
 import { useState } from "react";
 import OrderConfirmed from "./components/OrderConfirmed";
 

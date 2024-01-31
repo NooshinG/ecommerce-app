@@ -14,7 +14,6 @@ const PaymentForm = (props) => {
 
   const onSubmit = () => {
     // event.preventDefault();
-    console.log(getValues("paymentCard"));
     setFormDefaultValue(getValues("paymentCard"));
   };
 

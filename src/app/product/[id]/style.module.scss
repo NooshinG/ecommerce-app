@@ -1,10 +1,8 @@
 @use "../../../styles/" as *;
 
-// .relative{
-//   position: relative;
-// }
-
 .grid {
+  @extend %pd-inline;
+
   display: grid;
   grid-template-columns: 100%;
   grid-template-areas:
@@ -13,11 +11,9 @@
     "btn"
     "desc";
   gap: 0.875rem;
-}
 
-@media (min-width: $screen-md) {
-  .grid {
-    grid-template-columns: 45% 55%;
+  @media (min-width: $screen-md) {
+    grid-template-columns: 35% 65%;
     grid-template-areas:
       "pic info"
       "pic btn"
@@ -53,100 +49,79 @@
   aspect-ratio: 5/4;
 }
 
-// @media (min-width: $screen-md) {
-//   .image-container {
-//     width: clamp(40%, 10% + 1vw, 100%);
-//   }
-// }
-
 .image {
   position: static !important;
-  // aspect-ratio: 4/3;
-  // object-fit: contain;
   border-radius: $border-radius;
 }
 
-// .btn-container{
-//   position: sticky;
+// .button {
+//   background-color: $clr-primary-400;
+//   color: $clr-accent-400;
+//   padding: $size-1 $size-4;
+//   border-radius: $border-radius;
+//   width: 100%;
 // }
-
-// @media (max-width: $screen-md) {
-//   .btn-container {
-//     position: fixed;
-//     left:0;
-//     bottom: 0;
-//   }
-// }
-
-.button {
-  background-color: $clr-primary-400;
-  color: $clr-accent-400;
-  padding: $size-1 $size-4;
-  border-radius: $border-radius;
-  width: 100%;
-}
 
 .title {
-  color: $clr-emphasis-700;
+  @extend %text-emphasis-high;
+  // color: $clr-emphasis-700;
+  @media (min-width: $screen-md) {
+    color: $clr-bright;
+    background-color: $clr-primary;
+    border-radius: $border-radius;
+    padding: 2px 16px;
+  }
 }
 
 @media (min-width: $screen-md) {
-  .title {
-    color: $clr-bright-400;
-    background-color: $clr-primary-400;
-    border-radius: 8px;
-    padding: 2px 16px;
-  }
-
   .desc-title {
     padding: 0.75rem 1rem;
-    background-color: $clr-gray-400;
-    border-radius: 8px;
+    background-color: $clr-gray;
+    border-radius: $border-radius;
     border-top: none;
   }
 }
 
 .desc {
+  @extend %text-emphasis-low;
   text-align: justify;
-  color: $clr-emphasis-400;
   line-height: 1.25rem;
 }
 
 .title,
 .desc {
-  font-size: clamp(0.875rem, 0.8438rem + 0.1667vw, 1rem);
-  font-weight: 500;
+  @extend %fw-500;
+  font-size: $fs-r-1;
 }
 
 .ctg {
-  font-size: clamp(1rem, 0.7188rem + 1.5vw, 2.125rem);
-  color: $clr-dark-400;
+  @extend %text-dark;
+  font-size: $fs-r-1;
 }
 
 .item-title {
-  font-size: clamp(0.875rem, 0.7813rem + 0.5vw, 1.25rem);
-  color: $clr-emphasis-400;
+  @extend %text-emphasis-low;
+  font-size: $fs-r-2;
 }
 
 .ctg,
 .item-title {
-  font-weight: 500;
+  @extend %fw-500;
 }
 
 .price {
-  font-size: clamp(1.25rem, 0.9375rem + 1.6667vw, 2.5rem);
-  font-weight: 600;
-  color: $clr-emphasis-700;
+  @extend %text-emphasis-high, %fw-600;
+  font-size: $fs-m-3;
 }
 
 @media (min-width: $screen-md) {
   .ctg,
   .item-title {
-    font-weight: 600;
+    font-weight: $fw-600;
   }
 
   .price {
-    font-weight: 700;
+    font-weight: $fw-700;
   }
 }
 
@@ -154,9 +129,8 @@
   display: inline-block;
   width: 100%;
   height: 16px;
-  background-color: $clr-gray-400;
-  box-shadow: 60px 0px 0px 0px $clr-gray-400,
-     -60px 0px 0px 0px $clr-gray-400;
+  background-color: $clr-gray;
+  box-shadow: 60px 0px 0px 0px $clr-gray, -60px 0px 0px 0px $clr-gray;
 }
 
 @media (min-width: $screen-md) {

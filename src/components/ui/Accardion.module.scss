@@ -9,9 +9,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: $clr-dark-400;
-  font-size: clamp(0.875rem, 0.7813rem + 0.5vw, 1.25rem);
-  font-weight: 600;
+  color: $clr-dark;
+  font-size: $fs-r-2;
+  font-weight: $fw-600;
 
   svg {
     -webkit-transition: transform 2s;

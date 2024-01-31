@@ -1,72 +1,34 @@
 @use "variables" as *;
 
+// primary font size placeholders
+@each $key, $val in $fs-primary-list {
+  %fs-#{$key} {
+    font-size: #{$val};
+  }
+
+  .fs-#{$key} {
+    font-size: #{$val};
+  }
+}
+
 @each $key, $val in $clr-list {
-  .bg-#{$key} {
+  %bg-#{$key} {
     background-color: #{$val};
   }
 
-  .text-#{$key} {
+  %text-#{$key} {
     color: #{$val};
   }
 }
 
-@each $key, $val in $fs-primary-list {
-  .fs-#{$key} {
-    font-size: #{$val};
-  }
-}
-
-@each $key, $val in $fs-secondary-list {
-  .fs-#{$key} {
-    font-size: #{$val};
-  }
-}
-
-@media (min-width: $screen-md) {
-  $fs-primary-banner-title: clamp($fs-600, calc(-2.59rem + 8.18vw), $fs-900);
-  $fs-primary-banner-desc: clamp($fs-300, calc(-1.07rem + 3.64vw), $fs-650);
-  $fs-section-title: clamp($fs-400, calc(-1.40rem + 4.55vw), $fs-700);
-  $fs-brand:clamp($fs-300, calc(0.30rem + 0.91vw), $fs-500) ;
-  $fs-product-name: clamp($fs-300, calc(0.52rem + 0.45vw), $fs-400);
-  $fs-price:clamp($fs-400, calc(0.65rem + 0.45vw), $fs-500) ;
-  $fs-category:  clamp($fs-400, calc(-0.26rem + 2.27vw), $fs-600);
-  $fs-secondary-banner-small-title: clamp($fs-200, calc(-1.65rem + 4.55vw), $fs-680);
-  $fs-secondary-banner-bold-title: clamp($fs-500, calc(-3.09rem + 8.18vw), $fs-850);
-  $fs-secondary-banner-semi-bold-title: clamp($fs-400, calc(-2.08rem + 5.91vw), $fs-800);
-  $fs-footer: clamp($fs-400, calc(0.65rem + 0.45vw), $fs-500);
-
-  $fs-secondary-list: (
-    primary-banner-title: $fs-primary-banner-title,
-    primary-banner-desc: $fs-primary-banner-desc,
-    section-title: $fs-section-title,
-    brand: $fs-brand,
-    price: $fs-price,
-    category: $fs-category,
-    secondary-banner-small-title: $fs-secondary-banner-small-title,
-    secondary-banner-bold-title: $fs-secondary-banner-bold-title,
-    secondary-banner-semi-bold-title: $fs-secondary-banner-semi-bold-title,
-    footer: $fs-footer,
-  );
-
-  @each $key, $val in $fs-secondary-list {
-    .fs-#{$key} {
-      font-size: #{$val};
-    }
-  }
-}
 
 @each $key, $val in $fw-list {
+  %fw-#{$key} {
+    font-weight: #{$val};
+  }
+
   .fw-#{$key} {
     font-weight: #{$val};
   }
 }
 
-.padding-inline-default {
-  padding-inline: $size-4;
-}
-
-@media (min-width: $screen-md) {
-  .padding-inline-default {
-    padding-inline: $size-5;
-  }
-}

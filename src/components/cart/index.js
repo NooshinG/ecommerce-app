@@ -1,8 +1,8 @@
 "use client";
 
 import { useSelector } from "react-redux";
-import EmptyCart from "./EmptyCart";
-import FullCart from "./FullCart";
+import EmptyCart from "./components/EmptyCart";
+import FullCart from "./components/FullCart";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);

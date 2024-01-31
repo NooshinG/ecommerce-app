@@ -1,12 +1,11 @@
 @use "../../styles" as *;
 
 .header {
-  padding: $size-6 + $size-4 $size-4 $size-4 $size-4;
-}
+  @extend %pd-inline;
+  height: 3.5rem;
 
-@media (min-width: $screen-md) {
-  .header {
-    padding: $size-4 $size-5;
+  @media(min-width:$screen-md){
+    height: 5rem;
   }
 }
 
@@ -40,15 +39,13 @@
 }
 
 .badge {
+  @extend %fw-500, %fs-2, %text-bright, %bg-primary;
+
   display: inline-block;
   position: absolute;
   width: clamp(0.75rem, 0.375rem + 2vw, 1.1rem);
   bottom: -3px;
   left: -3px;
-  background-color: $clr-error-400;
-  color: $clr-bright-400;
-  font-weight: 500;
-  font-size: $fs-200;
   border-radius: 50%;
   text-align: center;
   aspect-ratio: 1;

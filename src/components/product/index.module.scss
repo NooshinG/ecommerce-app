@@ -1,22 +1,27 @@
 @use "../../styles" as *;
 
 .product__container {
-  // width: 100%;
-  // position: relative;
   padding-inline: $size-1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: $item-gap;
-  // border-radius: $border-radius;
-  // overflow: hidden;
+  gap: 0.3rem;
 }
 
 .product__image {
   position: static !important;
-  // width: 100%;
   aspect-ratio: 1;
   object-fit: contain;
   border-radius: $border-radius;
-  // display: inline-block;
+}
+
+.product__brand,
+.product__price {
+  @extend %fw-600, %text-emphasis-high;
+  font-size: $fs-r-1;
+}
+
+.product__category {
+  @extend %fw-500, %text-emphasis-low;
+  font-size: $fs-4;
 }

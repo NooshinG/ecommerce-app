@@ -1,0 +1,34 @@
+@use "variables" as *;
+
+.pd-inline {
+  @extend %pd-inline;
+}
+
+.button,
+.button-reverse {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  // height: fit-content;
+  font-size: $fs-4;
+  border-radius: $border-radius;
+  padding-block: 0.6rem;
+
+  @media (min-width: $screen-md) {
+    width: 11.25rem;
+  }
+}
+
+.button {
+  background-color: $clr-primary;
+  color: $clr-bright;
+}
+
+.button:hover,
+.button-reverse {
+  background-color: $clr-bright;
+  color: $clr-primary;
+  border: 1px solid $clr-primary;
+}

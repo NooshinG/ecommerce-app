@@ -1,11 +1,10 @@
 @use "../../styles" as *;
 
 .grid-auto {
+  @extend %pd-inline;
   display: grid;
   grid-template-columns: auto auto;
   gap: $size-6 $size-5;
-  // grid-auto-columns: 1fr 1fr ;
-  // grid-auto-flow: row;
 }
 
 @media (min-width: $screen-md) {

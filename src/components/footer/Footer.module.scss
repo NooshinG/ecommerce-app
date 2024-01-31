@@ -1,6 +1,5 @@
 @use "../../styles" as *;
 
-
 .footer__container,
 .flex,
 .flex__links,
@@ -10,51 +9,55 @@
 }
 
 .footer__container {
-  margin-top: $size-6;
-  background-color: $clr-primary-400;
-  justify-content: space-between;  
+  @extend %bg-primary;
+  font-size: $fs-r-1;
+  justify-content: space-between;
 
-  * {
-    font-size: $size-3;
+  @media (min-width: $screen-md) {
+    height: 20rem;
+    flex-direction: row;
   }
 }
 
 .footer__more-info {
+  @extend %pd-inline, %text-emphasis-low, %bg-bright;
   height: 3rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  color: $clr-emphasis-400;
-  background-color: $clr-bright-400;
-  padding-inline: $size-4;
+
+  @media (min-width: $screen-md) {
+    display: none;
+  }
 }
 
 .footer__links {
+  @extend %pd-inline;
   padding-block: $size-6;
-  padding-inline: $size-4;
 }
 
 @media (min-width: $screen-md) {
   .footer__links {
     padding-block: $size-8 4.62rem;
-    padding-inline: 3.75rem $size-4;
+    // padding-inline: 3.75rem $size-4;
   }
 }
 
 .flex {
-  // gap: 1.5rem;
   gap: clamp(1.5rem, calc(-3.5rem + 10vw), 4.25rem);
+
+  @media (min-width: $screen-md) {
+    flex-direction: row;
+  }
 }
 
 .flex__links {
-  // width: 100%;
-  // flex-wrap: wrap;
+  @extend %text-light;
   gap: 0.44rem;
-  color: $clr-light-400;
 
   > h2 {
-    color: $clr-bright-400;
+    @extend %text-bright;
   }
 }
 
@@ -71,7 +74,7 @@
     gap: $size-1;
 
     li:not(:last-of-type) {
-      border-right: 2px solid $clr-light-400;
+      border-right: 2px solid $clr-light;
     }
 
     li {
@@ -81,17 +84,14 @@
 }
 
 .socials__container {
+  @extend %pd-inline, %text-light;
   gap: 1.5rem;
-  border-top: 1px solid $clr-tint-400;
-  color: $clr-light-400;
+  border-top: 1px solid $clr-tint;
   padding-block: $size-6;
-  padding-inline: $size-4;
-}
 
-@media(min-width:$screen-md){
-  .socials__container{
+  @media (min-width: $screen-md) {
     align-items: self-end;
-    padding-right: clamp(1.00rem, calc(-4.00rem + 10.00vw), 3.75rem);
+    padding-right: clamp(1rem, calc(-4rem + 10vw), 3.75rem);
   }
 }
 
@@ -114,25 +114,5 @@
   svg {
     fill: currentColor;
     stroke: currentColor;
-  }
-}
-
-
-@media (min-width: $screen-md) {
-  .footer__container {
-    flex-direction: row;
-
-    * {
-      font-size: $size-4;
-    }
-  }
-
-  .footer__more-info {
-    display: none;
-  }
-
-  .flex {
-    flex-direction: row;
-    // gap: 4.25rem;
   }
 }

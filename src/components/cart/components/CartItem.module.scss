@@ -1,17 +1,15 @@
-@use "../../styles/" as *;
+@use "../../../styles/" as *;
 
 .item__container {
   padding: 16px 8px;
   margin-bottom: 1rem;
-  border-radius: 8px;
-  //   border: red solid 1px;
-  background-color: $clr-bright-400;
+  border-radius: $border-radius;
+  background-color: $clr-bright;
 }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  //   grid-auto-rows: max-content;
   gap: 0.5rem 0.8rem;
   grid-template-areas:
     "img ctg "
@@ -24,7 +22,6 @@
 @media (min-width: $screen-md) {
   .grid {
     grid-template-columns: repeat(5, 1fr);
-    // gap: 0.5rem 0.8rem;
     grid-template-areas:
       "img ctg price qty subtotal"
       "img title btn btn btn";
@@ -58,7 +55,7 @@
 .img__container {
   width: 100%;
   aspect-ratio: 12/10;
-  border-radius: 8px;
+  border-radius: $border-radius;
   overflow: hidden;
 }
 
@@ -69,25 +66,25 @@
 .ctg,
 .title,
 .qty {
-  font-size: clamp(0.75rem, 0.6875rem + 0.3333vw, 1rem);
+  font-size: $fs-s-2;
 }
 
 .ctg {
-  font-weight: 600;
-  color: $clr-emphasis-700;
+  font-weight: $fw-600;
+  color: $clr-emphasis-high;
 }
 
 .title,
 .qty {
-  font-weight: 500;
-  color: $clr-emphasis-400;
+  font-weight: $fw-500;
+  color: $clr-emphasis-low;
 }
 
 .price,
 .subtotal {
-  font-size: clamp(0.875rem, 0.8438rem + 0.1667vw, 1rem);
-  font-weight: 600;
-  color: $clr-emphasis-700;
+  font-size: $fs-r-1;
+  font-weight: $fw-600;
+  color: $clr-emphasis-high;
 }
 
 @media (max-width: $screen-md) {
@@ -99,7 +96,7 @@
 @media (min-width: $screen-md) {
   .price,
   .subtotal {
-    font-weight: 400;
+    font-weight: $fw-400;
   }
 }
 
@@ -110,9 +107,9 @@
 .btn {
   width: calc(50% - 2px);
   padding-block: 8px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: $clr-primary-400;
+  font-size: $fs-4;
+  font-weight: $fw-600;
+  color: $clr-primary;
 }
 
 @media (min-width: $screen-md) {
@@ -122,7 +119,7 @@
   }
 
   .btn:nth-of-type(2) {
-    color: $clr-error-400;
+    color: $clr-error;
   }
 }
 
@@ -150,7 +147,5 @@
   .h-seperator,
   .v-seperator {
     display: none;
-    // width: 0;
-    // height: 0;
   }
 }

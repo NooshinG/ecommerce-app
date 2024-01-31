@@ -5,9 +5,8 @@
   position: absolute;
   left: 0;
   width: 100%;
-  background-color: $clr-bright-400;
+  background-color: $clr-bright;
   padding-block: 1rem;
-  
 }
 
 .modal {
@@ -32,11 +31,11 @@
   align-items: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   padding-bottom: 1rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: $clr-emphasis-400;
+  font-size: $fs-4;
+  font-weight: $fw-600;
+  color: $clr-emphasis-low;
 
   button {
-    color: $clr-primary-400;
+    color: $clr-primary;
   }
 }

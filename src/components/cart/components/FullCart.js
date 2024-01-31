@@ -1,7 +1,7 @@
 "use client";
 
 // import { useSelector } from "react-redux";
-import classes from "./Cart.module.scss";
+import classes from "../index.module.scss";
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/initSupabase";
 import CartItem from "./CartItem";
@@ -49,7 +49,7 @@ const FullCart = ({cart}) => {
   return (
     <div className={classes["cart__container"]}>
       <h2 className={classes["cart__title"]}>My Cart</h2>
-      <div className={`${classes['items-area']} ${classes["padding-inline-default"]}`}>
+      <div className={`${classes['items-area']} ${classes["items__container"]}`}>
         <div className={classes['table__header']}>
           <span>Product Name</span>
           <span>Price</span>

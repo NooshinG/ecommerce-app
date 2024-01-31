@@ -11,8 +11,8 @@ const Header = ({ categories }) => {
   const cart = useSelector((state) => state.cart);
 
   const categoriesList = categories.map((item) => (
-    <li key={item.id} className={classes["fs-400"]}>
-      <Link href={`/category/${item.id}`}>{item.name}</Link>
+    <li key={item.id} >
+      <Link href={`/category/${item.id}`} className={classes["fs-4"]}>{item.name}</Link>
     </li>
   ));
 
@@ -30,7 +30,7 @@ const Header = ({ categories }) => {
             <use href="/icons.svg#menu" />
           </svg>
         </button>
-        <h2 className={`${classes["fs-550"]} ${classes["fw-600"]}`}>Home</h2>
+        <h2 className={`${classes["fs-6"]} ${classes["fw-600"]}`}>Home</h2>
       </div>
       <div className={classes["flex__right-items"]}>
         <button>

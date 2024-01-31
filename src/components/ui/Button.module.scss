@@ -1,28 +1,23 @@
 @use "../../styles" as *;
 
 .button {
+  @extend %bg-primary, %text-bright;
   width: fit-content;
   padding: 0.2rem 1.875rem;
-  background-color: $clr-primary-400;
-  color: $clr-bright-400;
   border-radius: $border-radius;
-  border: 1px solid $clr-primary-400;
+  border: 1px solid $clr-primary;
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
   align-items: center;
-  font-size: $fs-400;
+  font-size: $fs-r-1;
   font-weight: $fw-500;
-}
 
-.button:where(:hover, :focus-visible) {
-  color: $clr-primary-400;
-  background-color: $clr-bright-400;
-}
+  &:hover {
+    @extend %bg-bright, %text-primary;
+  }
 
-@media (min-width: $screen-md) {
-  .button {
+  @media (min-width: $screen-md) {
     padding: 0.2rem 2rem;
-    font-size: $fs-500;
   }
 }

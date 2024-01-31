@@ -1,4 +1,4 @@
-import classes from "./Cart.module.scss";
+import classes from "../index.module.scss";
 import Link from "next/link";
 
 const EmptyCart = () => {

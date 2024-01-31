@@ -25,12 +25,12 @@
 .logo {
   width: 2rem;
   aspect-ratio: 1;
-  border: 1px solid $clr-gray-400;
-  border-radius: 8px;
+  border: 1px solid $clr-gray;
+  border-radius: $border-radius;
 }
 
 .title{
-    font-size: clamp(0.875rem, 0.7188rem + 0.5vw, 1rem);
-    font-weight: 500;
-    color: $clr-emphasis-700;
+    font-size: $fs-r-1;
+    font-weight: $fw-500;
+    color: $clr-emphasis-high;
 }

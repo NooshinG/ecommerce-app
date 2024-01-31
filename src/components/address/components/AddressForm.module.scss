@@ -2,10 +2,8 @@
 
 .address-area {
   grid-area: address;
-}
 
-@media (max-width: $screen-md) {
-  .address-area {
+  @media (max-width: $screen-md) {
     height: 100%;
   }
 }
@@ -20,7 +18,7 @@
 
   input[type="text"] {
     border-radius: 3px;
-    background-color: $clr-gray-400;
+    background-color: $clr-gray;
     border: none;
     padding: 0.75rem 0.75rem 0.75rem 1rem;
   }
@@ -56,22 +54,20 @@
 }
 
 .form--text {
-  font-size: clamp(0.875rem, 0.8438rem + 0.1667vw, 1rem);
-  font-weight: 500;
-  color: $clr-emphasis-400;
+  font-size: $fs-r-1;
+  font-weight: $fw-500;
+  color: $clr-emphasis-low;
 
   label {
-    color: $clr-emphasis-700;
+    color: $clr-emphasis-high;
   }
 }
 
 .section__title {
   padding-bottom: 0.5rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-}
 
-@media (min-width: $screen-md) {
-  .section__title {
+  @media (min-width: $screen-md) {
     display: none;
   }
 }
@@ -83,10 +79,10 @@
 }
 
 .submit-btn {
-  border-radius: 8px;
+  border-radius: $border-radius;
   padding-block: 0.625rem;
-  background-color: $clr-primary-400;
-  color: $clr-bright-400;
+  background-color: $clr-primary;
+  color: $clr-bright;
   border: none;
 }
 
@@ -96,9 +92,9 @@
   align-items: center;
   justify-content: flex-start;
   gap: 0.5rem;
-  color: $clr-primary-400;
+  color: $clr-primary;
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: $fw-600;
   svg {
     height: 100%;
   }

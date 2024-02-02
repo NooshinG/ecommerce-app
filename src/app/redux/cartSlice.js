@@ -1,10 +1,8 @@
 "use client";
 
 import { createSlice } from "@reduxjs/toolkit";
-// import { setCookies, getCookie } from "@/lib/cookies";
-import { setLocal, getLocal } from "@/lib/localStorage";
 
-const initialCookie = getLocal("cart");
+const initialCookie = localStorage.getItem("cart");
 
 const initialState = initialCookie
   ? JSON.parse(initialCookie)
@@ -45,7 +43,7 @@ export const counterSlice = createSlice({
       state.totalQuantity = state.totalQuantity - qty;
       state.items.splice(idx, 1);
 
-      setLocal("cart", JSON.stringify(state));
+      localStorage.setItem("cart", JSON.stringify(state));
     },
     addToCart: (state, action) => {
       let idx = -1;
@@ -70,7 +68,7 @@ export const counterSlice = createSlice({
       });
 
       state.totalAmount = Math.round(state.totalAmount * 100) / 100;
-      setLocal("cart", JSON.stringify(state));
+      localStorage.setItem("cart", JSON.stringify(state));
     },
   },
 });

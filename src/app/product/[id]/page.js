@@ -1,15 +1,13 @@
-import { supabase } from "@/lib/initSupabase";
+
 import Image from "next/image";
 import classes from "./style.module.scss";
 import AddToCart from "@/components/addToCart/AddToCart";
+import { getProductById } from "@/lib/getProducts";
 
 export const revalidate = 60;
 
 const Page = async ({ params }) => {
-  const { data: product } = await supabase
-    .from("product")
-    .select("*,category(name)")
-    .eq("id", params.id);
+  const { data: product } = await getProductById(params.id)
 
   if (!product) {
     product.push({
@@ -25,8 +23,6 @@ const Page = async ({ params }) => {
       },
     });
   }
-
-  // console.log(product);
 
   return (
     <div className={` ${classes.grid} `}>

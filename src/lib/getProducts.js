@@ -11,13 +11,22 @@ async function getProducts() {
   return data;
 }
 
-async function getProductsOfCategory(categoryId) {
+async function getProductById(id) {
   let { data, error } = await supabase
     .from("product")
-    .select("*")
+    .select("*,category(name)")
+    .eq("id", id);
+
+  return { data, error };
+}
+
+async function getProductsOByCategory(categoryId) {
+  let { data, error } = await supabase
+    .from("product")
+    .select("*,category(name)")
     .eq("id_category", categoryId);
 
   return { data, error };
 }
 
-export { getProducts, getProductsOfCategory };
+export { getProducts, getProductsOByCategory, getProductById };

@@ -11,7 +11,7 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const categories = await getCategories();
+  const { data: categories } = await getCategories();
 
   return (
     <Providers>

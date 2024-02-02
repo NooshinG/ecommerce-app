@@ -1,14 +1,13 @@
 "use client";
 
-// import { useSelector } from "react-redux";
+
 import classes from "../index.module.scss";
 import { useEffect, useState } from "react";
-import { supabase } from "@/lib/initSupabase";
 import CartItem from "./CartItem";
 import CartDetails from "./CartDetails";
+import { getItems } from "@/app/api/route";
 
-const FullCart = ({cart}) => {
-  // const cart = useSelector((state) => state.cart);
+const FullCart = ({ cart }) => {
   const itemsId = [];
   const [data, setData] = useState([]);
 
@@ -17,24 +16,14 @@ const FullCart = ({cart}) => {
   });
 
   useEffect(() => {
-    let response;
-
-    async function getItems() {
-      let { data } = await supabase
-        .from("product")
-        .select("*,category(name)")
-        .in("id", itemsId);
-
-      return data;
-    }
-
     (async () => {
-      response = await getItems();
+      let response;
+      response = await getItems(itemsId);
       setData(response);
     })();
-  }, [JSON.stringify(itemsId),JSON.stringify(data)]);
-
-  // console.log(cart.items);
+  }, []);
+  
+  
 
   let Items = data.map((item) => {
     const cartItem = cart.items.filter((el) => el["id"] == item.id)[0];
@@ -49,15 +38,22 @@ const FullCart = ({cart}) => {
   return (
     <div className={classes["cart__container"]}>
       <h2 className={classes["cart__title"]}>My Cart</h2>
-      <div className={`${classes['items-area']} ${classes["items__container"]}`}>
-        <div className={classes['table__header']}>
+      <div
+        className={`${classes["items-area"]} ${classes["items__container"]}`}
+      >
+        <div className={classes["table__header"]}>
           <span>Product Name</span>
           <span>Price</span>
           <span>Qty</span>
           <span>subtotal</span>
         </div>
-        {Items}</div>
-      <CartDetails className='detail-area' totalPrice={cart.totalAmount} discount={cart.discount} />
+        {Items}
+      </div>
+      <CartDetails
+        className="detail-area"
+        totalPrice={cart.totalAmount}
+        discount={cart.discount}
+      />
     </div>
   );
 };

@@ -1,6 +1,6 @@
-import { supabase } from "@/lib/initSupabase";
-
 import Banner from "@/components/banner/Banner";
+import { getCategories } from "@/lib/getCategories";
+// import { useEffect, useState } from "react";
 // import Categories from "@/components/categories/Categories";
 // import NewArrivals from "@/components/newArrivals/NewArrivals";
 // import Handpick from "@/components/handpick/Handpick";
@@ -8,9 +8,8 @@ import Banner from "@/components/banner/Banner";
 // import Specials from "@/components/specials/Specials";
 // import Trends from "@/components/trends/Trends";
 
-
 export default async function Home() {
-  const {data : categories} = await supabase.from("category").select("*");
+  const { data: categories } = await getCategories();
 
   return (
     <>

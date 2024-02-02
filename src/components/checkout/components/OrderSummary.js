@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { supabase } from "@/lib/initSupabase";
 import classes from "./OrderSummary.module.scss";
+import { getItems } from "@/app/api/route";
 
 const OrderSummary = ({ cart }) => {
   const itemsId = [];
@@ -13,22 +13,12 @@ const OrderSummary = ({ cart }) => {
   });
 
   useEffect(() => {
-    let response;
-
-    async function getItems() {
-      let { data } = await supabase
-        .from("product")
-        .select("*,category(name)")
-        .in("id", itemsId);
-
-      return data;
-    }
-
     (async () => {
-      response = await getItems();
+      let response;
+      response = await getItems(itemsId);
       setData(response);
     })();
-  }, [JSON.stringify(itemsId), JSON.stringify(data)]);
+  }, []);
 
   let Items = data.map((item) => {
     const cartItem = cart.items.filter((el) => el["id"] == item.id)[0];

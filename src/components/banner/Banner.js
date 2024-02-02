@@ -10,7 +10,7 @@ import { MEDIUM_SCREEN_SIZE } from "../../constants/global";
 
 const Banner = ({ categories }) => {
   const { windowSize } = useWindowWidth();
-
+  
   const slides = categories.map((item) => ({
     id: item.id,
     url: item.image,

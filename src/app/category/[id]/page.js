@@ -1,14 +1,13 @@
-import { supabase } from "@/lib/initSupabase";
+
 import AutoGrid from "@/components/ui/AutoGrid";
 import Product from "@/components/product";
+import { getProductsOByCategory } from "@/lib/getProducts";
 
-export const revalidate = 0;
+export const revalidate = 60;
 
 const Page = async ({ params }) => {
-  const { data: products } = await supabase
-    .from("product")
-    .select("*,category(name)")
-    .eq("id_category", params.id);
+  const { data: products } = await getProductsOByCategory(params.id);
+
 
   if (!products) {
     return (
@@ -23,7 +22,7 @@ const Page = async ({ params }) => {
   if (products.length === 0) {
     return <p>This Category is empty!!</p>;
   }
-  console.log(products[0]);
+
   return (
     <AutoGrid>
       {products.map((item) => (

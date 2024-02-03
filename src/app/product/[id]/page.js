@@ -1,13 +1,13 @@
-
 import Image from "next/image";
 import classes from "./style.module.scss";
 import AddToCart from "@/components/addToCart/AddToCart";
 import { getProductById } from "@/lib/getProducts";
+import InputNumber from "@/components/ui/InputNumber";
 
 export const revalidate = 60;
 
 const Page = async ({ params }) => {
-  const { data: product } = await getProductById(params.id)
+  const { data: product } = await getProductById(params.id);
 
   if (!product) {
     product.push({
@@ -18,6 +18,7 @@ const Page = async ({ params }) => {
       image: "",
       create_date: "",
       price: 0,
+      qty: 0,
       category: {
         name: "",
       },
@@ -39,6 +40,10 @@ const Page = async ({ params }) => {
         <p className={classes.ctg}>{product[0].category.name}</p>
         <p className={classes["item-title"]}>{product[0].title}</p>
         <p className={classes.price}>{"$" + product[0].price}</p>
+        <div className={classes['qty__container']}>
+          <span>Quantity : </span>
+          <InputNumber maxValue={product[0].qty} />
+        </div>
       </div>
       <div className={`${classes["btn-area"]}`}>
         <AddToCart ProductId={product[0].id} Price={product[0].price} />

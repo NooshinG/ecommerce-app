@@ -1,0 +1,24 @@
+@use "../../styles" as *;
+
+.input__container {
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid $clr-primary;
+  border-radius: 3px;
+}
+
+.btn {
+  height: 24px;
+  width: 24px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.input {
+  width: 24px;
+  border: none;
+  text-align: center;
+}

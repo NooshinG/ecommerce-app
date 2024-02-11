@@ -1,8 +1,9 @@
+import { getProductById } from "@/lib/getProducts";
 import Image from "next/image";
 import classes from "./style.module.scss";
-import AddToCart from "@/components/addToCart/AddToCart";
-import { getProductById } from "@/lib/getProducts";
-import InputNumber from "@/components/ui/InputNumber";
+// import AddToCart from "@/components/addToCart/AddToCart";
+// import InputNumber from "@/components/ui/InputNumber";
+import AddToBag from "./components/AddToBag";
 
 export const revalidate = 60;
 
@@ -40,13 +41,15 @@ const Page = async ({ params }) => {
         <p className={classes.ctg}>{product[0].category.name}</p>
         <p className={classes["item-title"]}>{product[0].title}</p>
         <p className={classes.price}>{"$" + product[0].price}</p>
-        <div className={classes['qty__container']}>
-          <span>Quantity : </span>
-          <InputNumber maxValue={product[0].qty} />
-        </div>
       </div>
-      <div className={`${classes["btn-area"]}`}>
-        <AddToCart ProductId={product[0].id} Price={product[0].price} />
+      <div
+        className={`${classes["btn-area"]} ${classes["add-to-bag__container"]}`}
+      >
+        <AddToBag
+          id={product[0].id}
+          qty={product[0].qty}
+          price={product[0].price}
+        />
       </div>
       <div className={`${classes.flex} ${classes["desc-area"]}`}>
         <div className={classes.separator}></div>

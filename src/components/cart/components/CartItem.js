@@ -1,12 +1,17 @@
 import { useDispatch } from "react-redux";
-import { remove } from "@/app/redux/cartSlice";
+import { remove, addToCart } from "@/app/redux/cartSlice";
 import classes from "./CartItem.module.scss";
+import DropdownNumber from "@/components/ui/DropdownNumber";
 
 const CartItem = ({ Item, Qty }) => {
   const dispatch = useDispatch();
 
   const removeItemHandler = () => {
     dispatch(remove({ id: Item.id }));
+  };
+
+  const updateQuantityHandler = (value) => {
+    dispatch(addToCart({ id: Item.id, qty: value }));
   };
 
   return (
@@ -20,14 +25,21 @@ const CartItem = ({ Item, Qty }) => {
       <p className={`${classes.title} ${classes["title-area"]}`}>
         {Item.title}
       </p>
-      <p className={`${classes.qty} ${classes["qty-area"]}`}>
-        Qty: <span>{Qty}</span>
-      </p>
+      <div className={`${classes.qty} ${classes["qty-area"]}`}>
+        <span>{Qty}</span>
+        <div className={classes["quantity-selection"]}>
+          <DropdownNumber
+            defaultValue={Qty}
+            maxValue={Item.qty}
+            parentAction={updateQuantityHandler}
+          />
+        </div>
+      </div>
       <p className={`${classes.price} ${classes["price-area"]}`}>
         ${Item.price}
       </p>
       <p className={`${classes.subtotal} ${classes["subtotal-area"]}`}>
-        ${Item.price * Qty}
+        ${(Item.price * Qty).toFixed(2)}
       </p>
       <div className={`${classes["btn__container"]} ${classes["btn-area"]}`}>
         <div className={classes["h-seperator"]}></div>
@@ -35,7 +47,11 @@ const CartItem = ({ Item, Qty }) => {
           Move To Wishlist
         </button>
         <div className={classes["v-seperator"]}></div>
-        <button type="button" className={classes.btn} onClick={removeItemHandler}>
+        <button
+          type="button"
+          className={classes.btn}
+          onClick={removeItemHandler}
+        >
           Remove
         </button>
       </div>

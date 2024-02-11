@@ -54,7 +54,7 @@ export const counterSlice = createSlice({
       });
 
       if (idx >= 0) {
-        state.items[idx].qty += action.payload.qty;
+        state.items[idx].qty = action.payload.qty;
       } else {
         state.items.push(action.payload);
       }
@@ -64,7 +64,7 @@ export const counterSlice = createSlice({
 
       state.items.forEach((item) => {
         state.totalAmount += item.qty * item.unitPrice;
-        state.totalQuantity += item.qty;
+        state.totalQuantity += +item.qty;
       });
 
       state.totalAmount = Math.round(state.totalAmount * 100) / 100;

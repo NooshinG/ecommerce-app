@@ -27,8 +27,13 @@
 }
 
 .button:hover,
+.button:disabled,
 .button-reverse {
   background-color: $clr-bright;
   color: $clr-primary;
   border: 1px solid $clr-primary;
+}
+
+.button:disabled{
+  cursor: not-allowed;
 }

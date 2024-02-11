@@ -52,6 +52,18 @@
   grid-area: subtotal;
 }
 
+.qty > span {
+  @media (max-width: $screen-md) {
+    display: none;
+  }
+}
+
+.quantity-selection {
+  @media (min-width: $screen-md) {
+    display: none;
+  }
+}
+
 .img__container {
   width: 100%;
   aspect-ratio: 12/10;

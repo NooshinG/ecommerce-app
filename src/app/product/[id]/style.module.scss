@@ -14,6 +14,7 @@
 
   @media (min-width: $screen-md) {
     grid-template-columns: 35% 65%;
+    grid-template-rows: auto 1fr auto;
     grid-template-areas:
       "pic info"
       "pic btn"
@@ -31,7 +32,6 @@
 
 .btn-area {
   grid-area: btn;
-  align-self: flex-end;
 }
 
 .desc-area {
@@ -53,7 +53,6 @@
   position: static !important;
   border-radius: $border-radius;
 }
-
 
 .title {
   @extend %text-emphasis-high;
@@ -118,10 +117,22 @@
   }
 }
 
-.qty__container{
+.add-to-bag__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.qty__container {
+  @extend %fs-6, %fw-600, %text-dark;
   display: flex;
   gap: 0.5rem;
   align-items: center;
+  column-count: 2;
+
+  @media (max-width: $screen-md) {
+    display: none;
+  }
 }
 
 .separator {
@@ -136,4 +147,9 @@
   .separator {
     display: none;
   }
+}
+
+.error-massege{
+  @extend %text-error, %fs-5;
+  margin-block: 0.5rem;
 }

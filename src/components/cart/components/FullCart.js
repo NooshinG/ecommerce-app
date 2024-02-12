@@ -1,11 +1,9 @@
 "use client";
 
-
 import classes from "../index.module.scss";
 import { useEffect, useState } from "react";
 import CartItem from "./CartItem";
 import CartDetails from "./CartDetails";
-import { getItems } from "@/app/api/route";
 
 const FullCart = ({ cart }) => {
   const itemsId = [];
@@ -14,16 +12,22 @@ const FullCart = ({ cart }) => {
   cart.items.forEach((element) => {
     itemsId.push(element.id);
   });
-
+  
   useEffect(() => {
-    (async () => {
-      let response;
-      response = await getItems(itemsId);
-      setData(response);
-    })();
+    const fetchItems = async () => {
+      try {
+        const response = await fetch(
+          `/api/getItems?itemsId=${JSON.stringify(itemsId).replace("[", "").replace("]", "")}`
+        );
+        const itemsData = await response.json();
+        setData(itemsData);
+      } catch (error) {
+        console.error("Error fetching items: ", error);
+      }
+    };
+
+    fetchItems();
   }, []);
-  
-  
 
   let Items = data.map((item) => {
     const cartItem = cart.items.filter((el) => el["id"] == item.id)[0];

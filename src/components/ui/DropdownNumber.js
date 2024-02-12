@@ -19,9 +19,13 @@ const DropdownNumber = ({
 
   return (
     <form>
-      <select id="count" on onChange={itemSelectHandler}>
+      <select
+        id="count"
+        onChange={itemSelectHandler}
+        defaultValue={defaultValue}
+      >
         {options.map((op) => (
-          <option value={op} selected={op == defaultValue}>
+          <option value={op} key={op}>
             {op}
           </option>
         ))}

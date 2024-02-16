@@ -2,16 +2,20 @@
 
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialCookie = localStorage.getItem("cart");
+let initialCookie = null;
+if (typeof window !== "undefined") {
+  initialCookie = localStorage.getItem("cart");
+}
 
-const initialState = initialCookie
-  ? JSON.parse(initialCookie)
-  : {
-      totalAmount: 0,
-      totalQuantity: 0,
-      discount: 0,
-      items: [],
-    };
+const initialState =
+  initialCookie !== null
+    ? JSON.parse(initialCookie)
+    : {
+        totalAmount: 0,
+        totalQuantity: 0,
+        discount: 0,
+        items: [],
+      };
 
 export const counterSlice = createSlice({
   name: "counter",
@@ -22,7 +26,9 @@ export const counterSlice = createSlice({
       state.totalQuantity = 0;
       state.discount = 0;
       state.items = [];
-      localStorage.removeItem("cart");
+      if (typeof window !== "undefined") {
+        localStorage.removeItem("cart");
+      }
     },
     remove: (state, action) => {
       let qty = 0;
@@ -43,7 +49,9 @@ export const counterSlice = createSlice({
       state.totalQuantity = state.totalQuantity - qty;
       state.items.splice(idx, 1);
 
-      localStorage.setItem("cart", JSON.stringify(state));
+      if (typeof window !== "undefined") {
+        localStorage.setItem("cart", JSON.stringify(state));
+      }
     },
     addToCart: (state, action) => {
       let idx = -1;
@@ -68,7 +76,9 @@ export const counterSlice = createSlice({
       });
 
       state.totalAmount = Math.round(state.totalAmount * 100) / 100;
-      localStorage.setItem("cart", JSON.stringify(state));
+      if (typeof window !== "undefined") {
+        localStorage.setItem("cart", JSON.stringify(state));
+      }
     },
   },
 });

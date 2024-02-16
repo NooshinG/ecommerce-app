@@ -1,10 +1,18 @@
+import { supabase } from "@/lib/initSupabase";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
-  const data = await req.json();
-  const { username, address, orderItems } = data;
+  const res = await req.json();
+  const { username, address, items, totalPrice, totalQuantity } = res;
 
-  console.log(data);
 
-  return NextResponse.json(data);
+  const { data, error } = await supabase.rpc("insert_order", {
+    uname: username,
+    adr: address,
+    orders: items,
+    price: totalPrice,
+    quantity: totalQuantity,
+  });
+
+  return NextResponse.json({ data, error });
 }

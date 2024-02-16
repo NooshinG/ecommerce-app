@@ -13,11 +13,26 @@ const OrderSummary = ({ cart }) => {
   });
 
   useEffect(() => {
-    (async () => {
-      let response;
-      response = await getItems(itemsId);
-      setData(response);
-    })();
+    // (async () => {
+    //   let response;
+    //   response = await getItems(itemsId);
+    //   setData(response);
+    // })();
+
+    const fetchItems = async () => {
+      try {
+        const response = await fetch(
+          `/api/getItems?itemsId=${JSON.stringify(itemsId).replace("[", "").replace("]", "")}`
+        );
+        const itemsData = await response.json();
+        setData(itemsData);
+      } catch (error) {
+        console.error("Error fetching items: ", error);
+      }
+    };
+
+    fetchItems();
+
   }, []);
 
   let Items = data.map((item) => {

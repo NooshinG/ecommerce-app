@@ -11,7 +11,7 @@ const Categories = ({ categories }) => {
   const ctgList = categories.slice(0,4).map((item) => {
     const imgPath = `/icons.svg#skincare`;
     return (
-      <div className={classes["category__container"]}>
+      <div className={classes["category__container"]} key={item.id}>
         <div className={classes["category__img"]}>
           <svg>
             <use href={imgPath} />

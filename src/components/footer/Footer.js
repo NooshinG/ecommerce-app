@@ -26,7 +26,7 @@ const Footer = ({ categories }) => {
   return (
     <div className={classes["footer__container"]}>
       <div className={classes["footer__more-info"]}>
-        <h2>More about CORA'L</h2>
+        <h2>More about CORA&#39;L</h2>
         <svg>
           <use href="/icons.svg#chevron-up" />
         </svg>

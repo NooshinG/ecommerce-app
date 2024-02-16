@@ -11,7 +11,7 @@ const EmptyCart = () => {
       ></img>
       <h2 className={classes["empty-title"]}>Uh oh ....!</h2>
       <p className={classes["empty-message"]}>
-        You haven't added any any items. Start shopping to make your bag bloom
+        You haven&#39;t added any any items. Start shopping to make your bag bloom
       </p>
       <Link href="/" className={classes["shop-link"]}>
         Continue Shopping

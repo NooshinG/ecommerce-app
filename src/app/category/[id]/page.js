@@ -26,7 +26,7 @@ const Page = async ({ params }) => {
   return (
     <AutoGrid>
       {products.map((item) => (
-        <Product item={item} />
+        <Product item={item} key={item.id}/>
       ))}
     </AutoGrid>
   );

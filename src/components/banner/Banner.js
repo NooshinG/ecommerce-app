@@ -20,7 +20,7 @@ const Banner = ({ categories }) => {
 
   const slidesMap = slides.map((item) => {
     return (
-      <div className={classes["banner__container"]} id={item.id}>
+      <div className={classes["banner__container"]} id={item.id} key={item.id}>
         <Image src={item.url} alt={item.title} fill={true} />
 
         <div className={classes["banner__text"]}>

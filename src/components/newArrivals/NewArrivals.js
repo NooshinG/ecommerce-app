@@ -26,7 +26,7 @@ const NewArrivals = ({ products }) => {
       category: item.category.name,
       price: `$${item.price}`,
     }))
-    .map((item) => <Product item={item} slidesToShow={slidesToShow}/>);
+    .map((item) => <Product item={item} slidesToShow={slidesToShow} key={item.id}/>);
 
   return (
     <div

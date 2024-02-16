@@ -32,6 +32,7 @@ const CartItem = ({ Item, Qty }) => {
             defaultValue={Qty}
             maxValue={Item.qty}
             parentAction={updateQuantityHandler}
+            key={Item.id}
           />
         </div>
       </div>

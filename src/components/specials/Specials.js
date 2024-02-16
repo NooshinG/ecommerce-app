@@ -1,28 +1,30 @@
-
 import classes from "./Specials.module.scss";
 
 const Specials = () => {
   const specialItems = [
     {
+      id: 1,
       Image: "/makeup.jpg",
       Type: "wide",
       Desc: "LIFESTYLE",
       Title: "Makeup Accessories from Top Brands",
     },
     {
+      id: 2,
       Image: "/makeup.jpg",
       Type: "medium",
       Desc: "LIFESTYLE",
       Title: "Makeup Accessories from Top Brands",
     },
     {
+      id: 3,
       Image: "/makeup.jpg",
       Type: "medium",
       Desc: "LIFESTYLE",
       Title: "Makeup Accessories from Top Brands",
     },
   ].map((item) => (
-    <div className={classes["specials__banner"]} data-type={item.Type}>
+    <div className={classes["specials__banner"]} data-type={item.Type} key={item.id}>
       <img className={classes["specials__image"]} src={item.Image} />
       <div className={classes["specials__info"]}>
         <h3

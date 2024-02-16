@@ -11,17 +11,19 @@ const Trends = () => {
 
   const trendItems = [
     {
+      id: 1,
       url: "/socks.png",
       title: "Spring Summer Collection",
       desc: "UP TO 20% OFF",
     },
     {
+      id: 1,
       url: "/girl.png",
       title: "Spring Summer Collection",
       desc: "UP TO 20% OFF",
     },
   ].map((item) => (
-    <Link href="/">
+    <Link href="/" key={item.id}>
       <div className={classes["trend__container"]}>
         <img src={item.url} alt={item.title} />
         <div className={classes["trend__info"]}>

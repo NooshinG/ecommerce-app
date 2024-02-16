@@ -3,9 +3,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 let initialCookie = null;
-if (typeof window !== "undefined") {
-  initialCookie = localStorage.getItem("cart");
-}
+// if (typeof window !== "undefined") {
+initialCookie = window?.localStorage?.getItem("cart");
+// }
 
 const initialState =
   initialCookie !== null
@@ -26,9 +26,11 @@ export const counterSlice = createSlice({
       state.totalQuantity = 0;
       state.discount = 0;
       state.items = [];
-      if (typeof window !== "undefined") {
-        localStorage.removeItem("cart");
-      }
+
+      window?.localStorage?.removeItem("cart");
+      // if (typeof window !== "undefined") {
+      //   localStorage.removeItem("cart");
+      // }
     },
     remove: (state, action) => {
       let qty = 0;
@@ -49,9 +51,10 @@ export const counterSlice = createSlice({
       state.totalQuantity = state.totalQuantity - qty;
       state.items.splice(idx, 1);
 
-      if (typeof window !== "undefined") {
-        localStorage.setItem("cart", JSON.stringify(state));
-      }
+      window?.localStorage?.setItem("cart", JSON.stringify(state));
+      // if (typeof window !== "undefined") {
+      //   localStorage.setItem("cart", JSON.stringify(state));
+      // }
     },
     addToCart: (state, action) => {
       let idx = -1;
@@ -76,9 +79,10 @@ export const counterSlice = createSlice({
       });
 
       state.totalAmount = Math.round(state.totalAmount * 100) / 100;
-      if (typeof window !== "undefined") {
-        localStorage.setItem("cart", JSON.stringify(state));
-      }
+      window?.localStorage?.setItem("cart", JSON.stringify(state));
+      // if (typeof window !== "undefined") {
+      //   localStorage.setItem("cart", JSON.stringify(state));
+      // }
     },
   },
 });

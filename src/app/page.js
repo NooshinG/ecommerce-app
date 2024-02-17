@@ -8,6 +8,8 @@ import { getCategories } from "@/lib/getCategories";
 // import Specials from "@/components/specials/Specials";
 // import Trends from "@/components/trends/Trends";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const { data: categories } = await getCategories();
 

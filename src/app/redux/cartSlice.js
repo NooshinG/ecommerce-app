@@ -2,6 +2,8 @@
 
 import { createSlice } from "@reduxjs/toolkit";
 
+export const ssg = false;
+
 let initialCookie = null;
 if (typeof localStorage !== "undefined") {
   initialCookie = localStorage.getItem("cart");

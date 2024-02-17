@@ -1,6 +1,6 @@
 import Checkout from "@/components/checkout";
 
-export const ssg = false;
+export const dynamic = "force-dynamic";
 
 const Page = () => {
     return <Checkout />

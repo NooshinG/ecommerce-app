@@ -3,8 +3,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 let initialCookie = null;
-if (typeof window !== "undefined") {
-  initialCookie = window.localStorage.getItem("cart");
+if (typeof localStorage !== "undefined") {
+  initialCookie = localStorage.getItem("cart");
 }
 
 const initialState =
@@ -26,8 +26,8 @@ export const counterSlice = createSlice({
       state.totalQuantity = 0;
       state.discount = 0;
       state.items = [];
-      if (typeof window !== "undefined") {
-        window.localStorage.removeItem("cart");
+      if (typeof localStorage !== "undefined") {
+        localStorage.removeItem("cart");
       }
     },
     remove: (state, action) => {
@@ -49,8 +49,8 @@ export const counterSlice = createSlice({
       state.totalQuantity = state.totalQuantity - qty;
       state.items.splice(idx, 1);
 
-      if (typeof window !== "undefined") {
-        window.localStorage.setItem("cart", JSON.stringify(state));
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("cart", JSON.stringify(state));
       }
     },
     addToCart: (state, action) => {
@@ -76,8 +76,8 @@ export const counterSlice = createSlice({
       });
 
       state.totalAmount = Math.round(state.totalAmount * 100) / 100;
-      if (typeof window !== "undefined") {
-        window.localStorage.setItem("cart", JSON.stringify(state));
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("cart", JSON.stringify(state));
       }
     },
   },

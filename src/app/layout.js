@@ -4,6 +4,7 @@ import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 import { getCategories } from "@/lib/getCategories";
 import Providers from "./redux/Providers";
+import BottomNavigation from "@/components/bottomNavigation";
 
 export const dynamic = "force-dynamic";
 
@@ -27,6 +28,7 @@ export default async function RootLayout({ children }) {
             {children}
           </div>
           <Footer categories={categories} />
+          <BottomNavigation />
         </body>
       </html>
     </Providers>

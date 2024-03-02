@@ -1,0 +1,24 @@
+@use "../../styles/" as *;
+
+.side-navigation__container {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $screen-md) {
+    background-color: $clr-gray;
+    border-radius: $border-radius;
+  }
+}
+
+.option {
+  padding-block: 1rem;
+  padding-left: 0.3rem;
+  color: $clr-dark;
+  font-size: $fs-5;
+  font-weight: $fw-500;
+}
+
+.option--active{
+    border-left: 3px solid $clr-primary;
+    color: $clr-primary;
+}

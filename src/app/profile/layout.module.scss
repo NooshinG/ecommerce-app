@@ -1,0 +1,11 @@
+@use "../../styles/" as *;
+
+.layout {
+  @extend %pd-inline;
+
+  @media (min-width: $screen-md) {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 1rem;
+  }
+}

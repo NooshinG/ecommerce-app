@@ -5,22 +5,26 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "cdn.stocksnap.io",
-        port: "",
-        // pathname: '/account123/**',
+        hostname: "**",
       },
-      {
-        protocol: "https",
-        hostname: "drive.google.com",
-        port: "",
-        // pathname: '/account123/**',
-      },
-      {
-        protocol: "https",
-        hostname: "drive.usercontent.google.com",
-        port: "",
-        // pathname: '/account123/**',
-      },
+      // {
+      //   protocol: "https",
+      //   hostname: "cdn.stocksnap.io",
+      //   port: "",
+      //   // pathname: '/account123/**',
+      // },
+      // {
+      //   protocol: "https",
+      //   hostname: "drive.google.com",
+      //   port: "",
+      //   // pathname: '/account123/**',
+      // },
+      // {
+      //   protocol: "https",
+      //   hostname: "drive.usercontent.google.com",
+      //   port: "",
+      //   // pathname: '/account123/**',
+      // },
     ],
   },
 };

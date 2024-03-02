@@ -16,7 +16,7 @@ const BottomNavigation = () => {
           <use href="/icons.svg#categories" />
         </svg>
       </Link>
-      <Link href="/" className={classes["bottomnav-tab"]}>
+      <Link href="/profile" className={classes["bottomnav-tab"]}>
         <svg>
           <use href="/icons.svg#profile" />
         </svg>

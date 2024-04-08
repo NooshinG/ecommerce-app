@@ -1,0 +1,75 @@
+@use "../../../styles/" as *;
+
+.details__container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  @media (min-width: $screen-md) {
+    width: 260px;
+  }
+}
+
+.frame {
+  display: flex;
+  justify-content: space-between;
+}
+
+.details__header {
+  @extend %text-emphasis-low, %fw-600;
+  font-size: $fs-s-2;
+
+  @media (min-width: $screen-md) {
+    font-weight: $fw-500;
+  }
+}
+
+.details__content {
+  @extend %text-emphasis-high, %fw-500;
+  font-size: $fs-r-1;
+}
+
+.details__content--ordinary {
+  @media (max-width: $screen-md) {
+    color: $clr-emphasis-low;
+  }
+}
+
+.details__content--grand {
+  @extend %text-emphasis-high, %fw-500;
+  font-size: $fs-5;
+
+  @media (min-width: $screen-md) {
+    font-weight: $fw-600;
+  }
+}
+
+.order-details {
+  order: 1;
+}
+
+.Address-details {
+  order: 2;
+  @media (min-width: $screen-md) {
+    order: 3;
+  }
+}
+
+.Payment-details {
+  order: 3;
+  @media (min-width: $screen-md) {
+    order: 2;
+  }
+}
+
+.seprator {
+  @extend %bg-gray;
+  display: inline-block;
+  width: 100%;
+  height: 8px;
+  box-shadow: 100px 0 $clr-gray,-100px 0 $clr-gray;
+
+  @media(min-width:$screen-md){
+    display: none;
+  }
+}

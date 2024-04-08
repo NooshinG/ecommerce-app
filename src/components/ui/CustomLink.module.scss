@@ -1,0 +1,9 @@
+@use "../../styles/" as *;
+
+.custom-link {
+  @extend %text-primary, %fw-600;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-size: 1.25rem;
+}

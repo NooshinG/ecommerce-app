@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import classes from "./OrderSummary.module.scss";
-import { getItems } from "@/app/api/getItems/route";
+// import { getItems } from "@/app/api/getItems/route";
 
 const OrderSummary = ({ cart }) => {
   const itemsId = [];

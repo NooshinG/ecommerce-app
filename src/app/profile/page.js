@@ -17,14 +17,14 @@ const Page = () => {
 
   return (
     <>
-      <div>
+      {/* <div>
         <h2>
           {navigationOptions.filter(
             (option) => option.replaceAll(" ", "") == activeOption
           )}
         </h2>
       </div>
-      {activeOption == navigationOptions[2].replaceAll(" ", "") && <MyOrders />}
+      {activeOption == navigationOptions[2].replaceAll(" ", "") && <MyOrders />} */}
     </>
   );
 };

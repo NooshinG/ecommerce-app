@@ -1,43 +1,40 @@
 "use client";
 
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import classes from "./index.module.scss";
 
 const UserProfileSideNavigation = () => {
-  const activeOption = useSearchParams();
+  const pathname = usePathname();
 
   const navigationOptions = [
-    "Personal Information",
-    "Refer and Earn",
-    "My Orders",
-    "My Wishlist",
-    "My Reviews",
-    "My Address Book",
-    "My Saved Cards",
+    { title: "Personal Information", path: "" },
+    { title: "Refer and Earn", path: "" },
+    { title: "My Orders", path: "orders" },
+    { title: "My Wishlist", path: "" },
+    { title: "My Reviews", path: "" },
+    { title: "My Address Book", path: "" },
+    { title: "My Saved Cards", path: "" },
   ];
 
   return (
     <div className={classes["side-navigation__container"]}>
-      {navigationOptions.map((option) => {
-        let sectionName = option.replaceAll(" ", "");
-
+      {navigationOptions.map((option, index) => {
         return (
           <Link
-            // href={"/profile#" + sectionId}
             href={{
-              pathname: "/profile",
-              query: { section: sectionName },
+              pathname: "/profile/" + option.path,
             }}
-            key={option}
-            className={`${classes["option"]} ${
-              activeOption.get("section") == sectionName
-                ? classes["option--active"]
-                : ""
-            }`}
+            key={index}
+            className={`${classes["option"]}
+               ${
+                 "/profile/" + option.path == pathname
+                   ? classes["option--active"]
+                   : ""
+               }`}
             replace
           >
-            {option}
+            {option.title}
           </Link>
         );
       })}

@@ -16,6 +16,10 @@
   border-radius: $border-radius;
   padding-block: 0.6rem;
 
+  &:hover{
+    cursor: pointer;
+  }
+
   @media (min-width: $screen-md) {
     width: 11.25rem;
   }
@@ -37,3 +41,5 @@
 .button:disabled{
   cursor: not-allowed;
 }
+
+

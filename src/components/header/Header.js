@@ -73,14 +73,14 @@ const Header = ({ categories }) => {
             <use href="/icons.svg#wishlist" />
           </svg>
         </Link>
-        <Link href="/">
+        <Link href="/profile">
           <svg>
             <use href="/icons.svg#profile" />
           </svg>
         </Link>
         <Link href="/cart" className={classes.relative}>
           {cart.totalQuantity > 0 && (
-            <span className={classes.badge}>{cart.totalQuantity}</span>
+            <span className={classes.badge}></span>
           )}
           <svg>
             <use href="/icons.svg#bag" />

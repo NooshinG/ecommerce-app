@@ -3,8 +3,8 @@
 .product__container {
   display: grid;
   gap: 0.5rem;
-  grid-template-rows: repeat(4, auto);
-  grid-template-columns: auto auto;
+  // grid-template-rows: repeat(4, auto);
+  grid-template-columns: max-content auto;
 
   grid-template-areas:
     "img info"
@@ -14,7 +14,7 @@
   // grid-template-columns: 45% 55%;
 
   @media (max-width: $screen-md) {
-    width: 80%;
+    width: clamp(16rem, 80vw + 1rem, 40rem);
     // grid-template-rows: auto auto auto auto;
   }
 
@@ -28,11 +28,16 @@
   position: relative;
   top: 0;
   left: 0;
-  width: fit-content;
+  // max-width: fit-content;
+  max-height: 100%;
   aspect-ratio: 1;
   grid-area: img;
   border-radius: $border-radius;
   overflow: hidden;
+
+  img {
+    object-fit: contain;
+  }
 
   // @media (max-width: $screen-md) {
   //   grid-row: span 4;

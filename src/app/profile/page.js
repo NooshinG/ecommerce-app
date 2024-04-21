@@ -1,19 +1,19 @@
-"use client";
+// "use client";
 
-import MyOrders from "@/components/myOrders";
-import { useSearchParams } from "next/navigation";
+// import MyOrders from "@/components/myOrders";
+// import { useSearchParams } from "next/navigation";
 const Page = () => {
-  const activeOption = useSearchParams().get("section");
+  // const activeOption = useSearchParams().get("section");
 
-  const navigationOptions = [
-    "Personal Information",
-    "Refer and Earn",
-    "My Orders",
-    "My Wishlist",
-    "My Reviews",
-    "My Address Book",
-    "My Saved Cards",
-  ];
+  // const navigationOptions = [
+  //   "Personal Information",
+  //   "Refer and Earn",
+  //   "My Orders",
+  //   "My Wishlist",
+  //   "My Reviews",
+  //   "My Address Book",
+  //   "My Saved Cards",
+  // ];
 
   return (
     <>

@@ -1,6 +1,7 @@
 "use client";
 
 import Order from "@/components/Order";
+import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import { useEffect, useState } from "react";
 
 const Page = ({ params }) => {
@@ -23,7 +24,10 @@ const Page = ({ params }) => {
   }, []);
 
   return (
-    <>{details.length > 0 ? <Order order={details[0]} /> : <p>Loading...</p>}</>
+    <>
+      {details?.length > 0 && <Order order={details[0]} />}
+      {details?.length === 0 && <LoadingSpinner />}
+    </>
   );
 };
 

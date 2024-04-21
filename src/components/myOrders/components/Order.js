@@ -5,7 +5,7 @@ import classes from "./Order.module.scss";
 
 const Order = ({ order }) => {
 
-  console.log(order)
+  // console.log(order)
   return (
     <div className={`${classes["order-card"]}`}>
       <div className={classes["order__container"]}>

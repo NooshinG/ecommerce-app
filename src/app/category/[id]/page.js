@@ -20,7 +20,7 @@ const Page = async ({ params }) => {
   //   );
   // }
 
-  if (products.length === 0) {
+  if (products?.length === 0) {
     return <p>This Category is empty!!</p>;
   }
 

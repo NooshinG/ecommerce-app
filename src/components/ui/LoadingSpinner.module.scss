@@ -1,0 +1,26 @@
+@use "../../styles/" as *;
+
+$loader-size: 50px;
+
+.container{
+  @extend %pd-inline;
+  position: relative;
+  z-index: 100;
+}
+
+.spinner {
+  display: inline-block;
+  width: $loader-size;
+  height: $loader-size;
+  border-radius: 50%;
+  background: $clr-bright;
+  border-top: 5px $clr-primary solid;
+  border-right: 5px transparent solid;
+  animation: loading-spinner 1s infinite linear;
+}
+
+@keyframes loading-spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}

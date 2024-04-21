@@ -12,21 +12,17 @@ const Page = ({ params }) => {
         const res = await fetch(
           `/api/getOrderDetails?user=guest&orderId=${params.id}`
         );
-
         const data = await res.json();
-        // console.log(data)
         setDetails(data);
       } catch (error) {
-        console.log(error);
+        throw new Error(error?.message);
       }
     };
 
     fetchOrderDetails();
   }, []);
 
-  console.log(details.length);
-
-  return (    
+  return (
     <>{details.length > 0 ? <Order order={details[0]} /> : <p>Loading...</p>}</>
   );
 };

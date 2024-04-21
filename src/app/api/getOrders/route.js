@@ -5,7 +5,7 @@ export async function GET(req, res) {
   const { searchParams } = new URL(req.url);
   const userName = searchParams.get("user");
 
-  let { data } = await supabase
+  let { data, error } = await supabase
     .from("orders")
     .select("*")
     .eq("username", userName);

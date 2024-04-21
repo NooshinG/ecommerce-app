@@ -1,0 +1,23 @@
+@use "../../styles/" as *;
+
+.error__container {
+  @extend %pd-inline;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  height: calc(-25rem + 100vh);
+  text-align: center;
+}
+
+.title {
+  font-size: $fs-l-1;
+  font-weight: $fw-600;
+  color: $clr-dark;
+}
+
+.message {
+  font-size: $fs-r-2;
+}

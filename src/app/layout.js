@@ -14,7 +14,12 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const { data: categories } = await getCategories();
+  const { data: categories, error } = await getCategories();
+
+  
+  if (error) {
+    throw new Error(error?.message);
+  }
 
   return (
     <Providers>
@@ -23,11 +28,14 @@ export default async function RootLayout({ children }) {
           <div id="overlays"></div>
           <Header categories={categories} />
           <div
-            style={{ minHeight: "calc(100vh - 25rem)", paddingBottom: "2.5rem" }}
+            style={{
+              minHeight: "calc(100vh - 25rem)",
+              paddingBottom: "2.5rem",
+            }}
           >
             {children}
           </div>
-          <Footer categories={categories} />
+          <Footer categories={categories} /> 
           <BottomNavigation />
         </body>
       </html>

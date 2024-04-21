@@ -8,7 +8,11 @@ import AddToBag from "./components/AddToBag";
 export const revalidate = 60;
 
 const Page = async ({ params }) => {
-  const { data: product } = await getProductById(params.id);
+  const { data: product ,error} = await getProductById(params.id);
+
+  if (error) {
+    throw new Error(error?.message);
+  }
 
   if (!product) {
     product.push({

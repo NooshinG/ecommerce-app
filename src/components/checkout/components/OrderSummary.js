@@ -27,7 +27,8 @@ const OrderSummary = ({ cart }) => {
         const itemsData = await response.json();
         setData(itemsData);
       } catch (error) {
-        console.error("Error fetching items: ", error);
+        // console.error("Error fetching items: ", error);
+        throw new Error(error?.message);
       }
     };
 

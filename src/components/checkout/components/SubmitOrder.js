@@ -45,7 +45,8 @@ const SubmitOrder = (props) => {
         props.confirmOrder(true);
       }
     } catch (error) {
-      console.log(error.message);
+      // console.log(error.message);
+      throw new Error(error?.message);
     }
 
     setIsLoading(false);

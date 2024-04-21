@@ -14,5 +14,5 @@ export async function POST(req) {
     quantity: totalQuantity,
   });
 
-  return NextResponse.json({ data, error });
+  return NextResponse.json(data);
 }

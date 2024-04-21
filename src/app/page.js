@@ -11,7 +11,13 @@ import { getCategories } from "@/lib/getCategories";
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  const { data: categories } = await getCategories();
+  const { data: categories, error } = await getCategories();
+
+  if (error) {
+    throw new Error(error?.message);
+  }
+
+  // throw new Error('test for error message')
 
   return (
     <>
